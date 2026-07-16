@@ -340,6 +340,7 @@
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 .course-card-uiverse svg,

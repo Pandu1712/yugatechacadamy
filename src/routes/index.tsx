@@ -940,10 +940,10 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   const name = courseName.toLowerCase();
   
   // Outer wrapper container styles
-  const wrapperClass = "w-[90px] h-[90px] rounded-[24px] bg-white border border-slate-200/60 flex items-center justify-center flex-shrink-0 shadow-[0_10px_25px_rgba(0,0,0,0.03)] transition-all duration-500 group-hover:w-16 group-hover:h-16 group-hover:rounded-full group-hover:border-3 group-hover:border-[#EAB308] group-hover:shadow-md";
+  const wrapperClass = "profile-pic-inner overflow-hidden flex-shrink-0";
   
   // SVG brand classes
-  const svgClass = "w-12 h-12 transition-all duration-500 group-hover:w-8 group-hover:h-8 flex-shrink-0";
+  const svgClass = "transition-all duration-400 flex-shrink-0";
   
   if (name === "c programming") {
     return (
