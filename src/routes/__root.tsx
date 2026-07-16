@@ -76,11 +76,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "YUGA Tech Academy — Learn. Build. Excel." },
       { name: "description", content: "Premier IT training institute in Visakhapatnam. Master AI, Cloud, Cybersecurity, Full Stack & more with expert trainers, live projects, internships and 95% placement support." },
+      { name: "keywords", content: "IT Training Institute Visakhapatnam, Software Courses Vizag, Java Full Stack Course, MERN Stack Developer, Python Programming, AWS Cloud Certification, DevOps Training, Cyber Security Classes" },
       { name: "author", content: "YUGA Tech Academy" },
+      { name: "robots", content: "index, follow" },
+      
+      // Open Graph / Facebook Meta Tags
       { property: "og:title", content: "YUGA Tech Academy — Learn. Build. Excel." },
       { property: "og:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://yugatechacademy.com" },
+      { property: "og:image", content: "/yugaacademy-logo.jpeg" },
+      
+      // Twitter Card Meta Tags
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "YUGA Tech Academy — Learn. Build. Excel." },
+      { name: "twitter:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
+      { name: "twitter:image", content: "/yugaacademy-logo.jpeg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -88,6 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
       { rel: "icon", href: "/yugaacademy-logo.jpeg", type: "image/jpeg" },
+      { rel: "canonical", href: "https://yugatechacademy.com" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,6 +113,20 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        
+        {/* Google Search Console Site Verification */}
+        <meta name="google-site-verification" content="ENTER_YOUR_GSC_VERIFICATION_CODE_HERE" />
+        
+        {/* Google Analytics (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YOUR_MEASUREMENT_ID');
+          `
+        }} />
       </head>
       <body>
         {children}
