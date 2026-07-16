@@ -325,7 +325,9 @@
   left: 3px;
   border-radius: 29px;
   z-index: 1;
-  background: transparent;
+  background-color: #f8fafc;
+  background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
   transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
 }
 

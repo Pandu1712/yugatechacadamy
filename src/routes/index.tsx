@@ -939,10 +939,16 @@ const getCourseBullets = (course: any) => {
 const getCourseIcon = (courseName: string, categoryIcon: any) => {
   const name = courseName.toLowerCase();
   
+  // Outer wrapper container styles
+  const wrapperClass = "w-[90px] h-[90px] rounded-[24px] bg-white border border-slate-200/60 flex items-center justify-center flex-shrink-0 shadow-[0_10px_25px_rgba(0,0,0,0.03)] transition-all duration-500 group-hover:w-16 group-hover:h-16 group-hover:rounded-full group-hover:border-3 group-hover:border-[#EAB308] group-hover:shadow-md";
+  
+  // SVG brand classes
+  const svgClass = "w-12 h-12 transition-all duration-500 group-hover:w-8 group-hover:h-8 flex-shrink-0";
+  
   if (name === "c programming") {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200/80 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#A8B9CC" d="M117.5 33.5L68.5 4.9c-2.8-1.6-6.2-1.6-9 0L10.5 33.5c-2.8 1.6-4.5 4.6-4.5 7.8v57.3c0 3.2 1.7 6.2 4.5 7.8l49 28.6c2.8 1.6 6.2 1.6 9 0l49-28.6c2.8-1.6 4.5-4.6 4.5-7.8V41.3c0-3.2-1.7-6.2-4.5-7.8z" />
           <path fill="#00599C" d="M112.5 36.4L68.5 10.7c-2.8-1.6-6.2-1.6-9 0L15.5 36.4c-2.8 1.6-4.5 4.6-4.5 7.8v51.6c0 3.2 1.7 6.2 4.5 7.8l44 25.7c2.8 1.6 6.2 1.6 9 0l44-25.7c2.8-1.6 4.5-4.6 4.5-7.8V44.2c0-3.2-1.7-6.2-4.5-7.8z" />
           <path fill="#FFFFFF" d="M85.4 82.9c-6.1 7.2-15 11.2-25.4 11.2-18.7 0-32.9-14-32.9-32.9S41.3 28.3 60 28.3c10.4 0 19.3 4 25.4 11.2l12.7-12.7C88.6 15.6 75.3 10 60 10 29.8 10 7.8 33.5 7.8 63.8s22 53.8 52.2 53.8c15.3 0 28.6-5.6 38.1-16.8L85.4 82.9z" />
@@ -953,8 +959,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   
   if (name === "c++") {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#A8B9CC" d="M117.5 33.5L68.5 4.9c-2.8-1.6-6.2-1.6-9 0L10.5 33.5c-2.8 1.6-4.5 4.6-4.5 7.8v57.3c0 3.2 1.7 6.2 4.5 7.8l49 28.6c2.8 1.6 6.2 1.6 9 0l49-28.6c2.8-1.6 4.5-4.6 4.5-7.8V41.3c0-3.2-1.7-6.2-4.5-7.8z" />
           <path fill="#00599C" d="M112.5 36.4L68.5 10.7c-2.8-1.6-6.2-1.6-9 0L15.5 36.4c-2.8 1.6-4.5 4.6-4.5 7.8v51.6c0 3.2 1.7 6.2 4.5 7.8l44 25.7c2.8 1.6 6.2 1.6 9 0l44-25.7c2.8-1.6 4.5-4.6 4.5-7.8V44.2c0-3.2-1.7-6.2-4.5-7.8z" />
           <path fill="#FFFFFF" d="M78 80.5c-5.1 6.2-13 10.2-22.4 10.2-16.7 0-29.9-12-29.9-28.9s13.2-28.9 29.9-28.9c9.4 0 17.3 4 22.4 10.2l11.7-11.7C77.2 15.6 66.9 10 55.6 10 28.4 10 7.4 31.5 7.4 61.8s21 51.8 48.2 51.8c11.3 0 21.6-5.6 29.1-15.8L78 80.5z" />
@@ -966,8 +972,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   
   if (name.includes("python")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#3776AB" d="M64 5.92c-32.06 0-30.04 13.91-30.04 13.91l.01 14.36h30.41v4.28H15.02s-14.28-1.63-14.28 30.04c0 31.67 12.63 30.41 12.63 30.41l11.29-.01v-15.9c0-19.16 15.54-18.73 15.54-18.73h26.47c19.16 0 18.73-15.54 18.73-15.54V18.73c0-19.16-17.65-12.81-17.65-12.81S80 5.92 64 5.92zm-12.81 7.21c2.37 0 4.29 1.91 4.29 4.28 0 2.37-1.92 4.29-4.29 4.29-2.37 0-4.28-1.92-4.28-4.29 0-2.37 1.91-4.28 4.28-4.28z" />
           <path fill="#FFE873" d="M64 122.08c32.06 0 30.04-13.91 30.04-13.91l-.01-14.36H63.62v-4.28h49.36s14.28 1.63 14.28-30.04c0-31.67-12.63-30.41-12.63-30.41l-11.29.01v15.9c0 19.16-15.54 18.73-15.54 18.73H71.27c-19.16 0-18.73 15.54-18.73 15.54v26.47c0 19.16 17.65 12.81 17.65 12.81s13.78.01 29.81.01zm12.81-7.21c-2.37 0-4.29-1.91-4.29-4.28 0-2.37 1.92-4.29 4.29-4.29 2.37 0 4.28 1.92 4.28 4.29 0 2.37-1.91 4.28-4.28 4.28z" />
         </svg>
@@ -977,8 +983,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   
   if (name.includes("java") && !name.includes("javascript")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#EA2D42" d="M85.7 94.3c-2.3 5.3-7.7 9.8-15.5 12.8-12 4.7-27.9 5.3-39.7 1.5-6.3-2-10.4-5.2-11.4-8.8-.7-2.6.2-5.3 2.4-7.8l2.2-2.3 2.2 2.3c2 2 5 3.8 8.6 5.1 9.9 3.6 24 3.7 34.3.4 9.1-3 14.8-7.8 14.8-12.7 0-.7-.1-1.4-.3-2.1L81.2 80c2.8 1.9 4.3 4.2 4.5 6.6.3 2.9-.6 5.7-2.3 7.7z" />
           <path fill="#305D7C" d="M98.9 76.5c-4.4 7.6-14 13.3-25.7 15.3-7.5 1.3-15.3.8-22.3-1.4-10.6-3.4-17.1-9.9-17-17 .1-8.1 7.2-15.6 18.5-19.7 6.4-2.3 13.5-3.3 20.3-2.7 10.9 1 19.3 5.3 23.3 11.9 2.5 4.2 3.6 8.9 2.9 13.6zm-17.4-4.8c1-1.6 1.5-3.4 1.4-5.3 0-6.1-5.1-11-11.3-11s-11.3 4.9-11.3 11 5.1 11 11.3 11c3.8-.1 7.3-2.2 9.9-5.7z" />
           <path fill="#EA2D42" d="M68.5 2.1C65.3 10.4 72.8 17.5 70 25.8c-2.3 6.8-8.8 10.8-7.5 18.9 1.4 9 11.3 13 8.3 22.4-.7 2.3-2.2 4.3-3.8 5.8 4.5-1.7 8.3-5.1 9.7-10.3 2.1-8.1-4.5-13.5-1.6-21.8 2.6-7.4 9.1-10.8 7.9-19.1-1.2-8.3-9.7-12.7-7.3-21.7C67.2 7.3 68.6 4.3 69.8 2.1c-1.3 0-1.3 0 0 0z" />
@@ -989,8 +995,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   
   if (name.includes("javascript") || name.includes("front-end")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-yellow-50 border border-yellow-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#F7DF1E" d="M1.4 1.4h125.2v125.2H1.4V1.4z" />
           <path fill="#000000" d="M118.2 100.7c-2.3-4-5.2-7.3-9.8-9.8-3.7-2-8.3-3.1-15.8-3.1-4 0-7.8.6-10.4 1.4-2.8 1.1-5.1 2.8-6.3 5.4-2 3.4-2 8.3-.3 11.8 1.4 2.8 3.7 4.8 6.9 6 3.7 1.4 9.8 2.8 17.3 4 10.4 1.7 17.3 3.7 21.6 6.6 4.8 3.1 8 7.5 9.2 13 1.1 4.3.9 9.8-.9 14.7-2.3 6.3-6.6 11.3-12.7 14.1-6 2.8-14.7 4-25.1 4-11.8 0-21-2.3-27.7-6.9-6.3-4.3-9.5-10.4-10.1-20.5h18.7c.6 5.4 2.6 9.2 6 11.5 4.3 2.8 11.2 4 19.9 4 7.2 0 12.7-.9 15.8-2.6 3.4-1.7 5.1-4.3 5.1-8.3 0-3.4-1.4-6-4.6-7.8-2.6-1.7-7.2-2.8-14.1-4-10.9-1.7-18.7-3.4-23.3-6.3-5.4-3.1-8.9-7.8-10.1-13.8-1.1-4.8-.6-10.4 1.7-15.3 2.8-6 7.5-10.4 13.8-12.7 6.3-2.3 14.7-3.4 24.5-3.4 10.9 0 19.3 2 25.1 5.7 5.4 3.4 8.6 8.3 9.8 15.8H118.2zm-67.4-48.4v68.3c0 8-.6 13.8-2 17.6-1.7 4.6-5.1 8.3-9.8 10.4-4.8 2.3-11.8 3.1-21.3 3.1-6.6 0-12.1-.6-16.1-1.7-4-1.1-7.2-2.8-9.8-5.1-2-1.7-3.7-4-4.6-6.9-.9-2.8-.9-7.2-.9-12.7h18.7c0 4 .9 6.6 2.3 8 2.3 2 6 2.8 11.2 2.8 5.7 0 9.5-1.1 11.2-3.1 1.7-2 2.3-6 2.3-12.4V52.3h19.1z" />
         </svg>
@@ -1000,8 +1006,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("mern stack") || name.includes("flutter") || name.includes("react") || name.includes("android")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#61DAFB" d="M117.7 54c-1.5-6.8-5.3-12.7-10.7-17-4.2-3.3-9-5.7-14.2-7l-1.3-.3c-3-.6-6.2-.9-9.5-1-12.6-.2-24 3.7-33 11-4.7 3.8-8.8 8.4-12.1 13.5-3.3 5.1-5.7 10.7-7 16.7-1.5 6.8-1 13.5 1.5 19.5 3.3 8.1 9.3 14.5 17 18.2 5.1 2.5 10.7 3.9 16.7 4.2h1.6c3.2.1 6.5 0 9.8-.3 11.2-1 21.6-5.6 29.8-13 4.7-4.2 8.5-9.3 11.3-15 2.8-5.7 4.2-11.9 4.2-18.4v-1.1zm-84.5-18c2-2.5 4.3-4.7 7-6.6 6.3-4.5 13.6-7.2 21.2-8 3-.3 6-.4 9.1-.3l1.8.1c8.4.5 16.2 3.1 23 7.5 5.7 3.7 10.4 8.7 13.8 14.5.8 1.4 1.5 2.9 2 4.4-1.7 5.7-5.1 10.7-9.8 14.5-6.8 5.4-15 8.9-23.8 10.4-3.5.6-7.1.9-10.7.9-9.1 0-17.9-2-25.9-5.9-6-2.9-11.2-7.1-15-12.3-1.6-2.2-2.8-4.7-3.6-7.3.7-2.7 1.8-5.2 3.3-7.5l1.6-2.2z" />
           <circle cx="64" cy="64" r="7" fill="#61DAFB" />
         </svg>
@@ -1011,8 +1017,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("aws") || name.includes("azure") || name.includes("gcp") || name.includes("google cloud") || name.includes("cloud")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 256 256" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 256 256" className={svgClass}>
           <path fill="#232F3E" d="M110.2 163.6c-4.4 7-11 11.2-19.8 12.8-12 2.2-24.2-2.2-30.8-11-4.4-6-6.6-13-6.6-21v-30c0-15.4 8.8-26.4 22-29.7 13.2-3.3 26.4 1 33 11 6.6 9.9 8.8 23 8.8 38.5v30c0 4.4-.8 7.7-2.2 9.9-1.4 2.2-2.6 4.4-4.4 6.6zm-17.6-43c0-12-.5-19.8-3.3-24.2-2.8-4.4-7.7-6.6-13.2-6.6-5.5 0-9.9 2.2-12.7 6.6-2.8 4.4-3.3 12.1-3.3 24.2v22c0 12.1.5 19.8 3.3 24.2 2.8 4.4 7.2 6.6 12.7 6.6 5.5 0 10.4-2.2 13.2-6.6 2.8-4.4 3.3-12.1 3.3-24.2v-22z" />
           <path fill="#FF9900" d="M30 185c40 32 105 45 156 36 28-5 54-15 70-26 5-3 5-7 1-10s-7-2-11 1c-15 10-38 18-62 23-45 8-105-2-141-28-5-4-10-3-13 1s-2 9 0 13z" />
           <path fill="#FF9900" d="M246 171c-3-11-15-28-21-33-3-3-7-1-6 3 2 12 5 32-2 42-2 3-1 6 3 5 11-4 28-11 31-15 3-1 0-7-5-12z" />
@@ -1023,8 +1029,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("devops")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 24 24" className="w-6 h-6" stroke="#10B981" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 24 24" className={svgClass} stroke="#10B981" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 12c0-3.31-2.69-6-6-6-2.44 0-4.5 1.5-5.5 3.5-1-2-3.06-3.5-5.5-3.5-3.31 0-6 2.69-6 6s2.69 6 6 6c2.44 0 4.5-1.5 5.5-3.5 1 2 3.06 3.5 5.5 3.5 3.31 0 6-2.69 6-6z" />
         </svg>
       </div>
@@ -1033,8 +1039,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("sql") || name.includes("database") || name.includes("postgresql") || name.includes("mysql") || name.includes("mongodb")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 24 24" className="w-6 h-6" stroke="#3B82F6" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 24 24" className={svgClass} stroke="#3B82F6" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <ellipse cx="12" cy="5" rx="9" ry="3" />
           <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
           <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
@@ -1045,8 +1051,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("office") || name.includes("excel") || name.includes("tally")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-green-50 border border-green-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 128 128" className="w-6 h-6">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 128 128" className={svgClass}>
           <path fill="#107C41" d="M74 16h38c3.3 0 6 2.7 6 6v84c0 3.3-2.7 6-6 6H74V16z" />
           <path fill="#1F9A55" d="M16 32h58v64H16c-3.3 0-6-2.7-6-6V38c0-3.3 2.7-6 6-6z" />
           <path fill="#FFF" d="M32 48h26v6H32v-6zm0 14h26v6H32v-6zm0 14h26v6H32v-6z" />
@@ -1059,8 +1065,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
 
   if (name.includes("scratch") || name.includes("block coding") || name.includes("kids") || name.includes("robotics")) {
     return (
-      <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg viewBox="0 0 24 24" className="w-6 h-6" stroke="#8B5CF6" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 24 24" className={svgClass} stroke="#8B5CF6" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
           <path d="M19 11h-4V7a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4H3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z" />
           <circle cx="12" cy="15" r="2" />
         </svg>
@@ -1070,13 +1076,11 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   
   const CatIcon = categoryIcon;
   return (
-    <div className="w-12 h-12 rounded-2xl bg-slate-50 text-slate-700 border border-slate-200/60 flex items-center justify-center flex-shrink-0 shadow-sm">
-      <CatIcon className="w-5 h-5" />
+    <div className={wrapperClass}>
+      <CatIcon className="w-12 h-12 transition-all duration-500 group-hover:w-8 group-hover:h-8 text-slate-700 flex-shrink-0" />
     </div>
   );
-};
-
-const getCourseBg = (courseName: string, categoryName: string) => {
+};const getCourseBg = (courseName: string, categoryName: string) => {
   const name = courseName.toLowerCase();
   const cat = categoryName.toLowerCase();
   if (name === "c programming") return "bg-slate-50/60 border-slate-200/60";
