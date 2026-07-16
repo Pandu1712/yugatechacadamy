@@ -949,7 +949,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-blue-50 text-blue-600",
       checkClass: "text-blue-500",
       bannerMsg: "Build a strong foundation",
-      icon: "code"
+      icon: "code",
+      cardBorder: "border-blue-100 hover:border-blue-300",
+      logoBorder: "border-blue-100"
     };
   }
   if (name === "c++") {
@@ -961,7 +963,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-purple-50 text-purple-600",
       checkClass: "text-purple-500",
       bannerMsg: "Level up with C++",
-      icon: "rocket"
+      icon: "rocket",
+      cardBorder: "border-purple-100 hover:border-purple-300",
+      logoBorder: "border-purple-100"
     };
   }
   if (name.includes("python")) {
@@ -973,7 +977,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-amber-50 text-amber-700",
       checkClass: "text-amber-500",
       bannerMsg: "Code. Automate. Innovate.",
-      icon: "code"
+      icon: "code",
+      cardBorder: "border-amber-200/70 hover:border-amber-400",
+      logoBorder: "border-amber-200/50"
     };
   }
   if (name.includes("java") && !name.includes("javascript")) {
@@ -985,7 +991,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-red-50 text-red-600",
       checkClass: "text-red-500",
       bannerMsg: "Write robust applications",
-      icon: "star"
+      icon: "star",
+      cardBorder: "border-red-100 hover:border-red-300",
+      logoBorder: "border-red-100"
     };
   }
   if (name.includes("javascript") || name.includes("front-end")) {
@@ -997,7 +1005,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-yellow-50 text-yellow-700",
       checkClass: "text-amber-500",
       bannerMsg: "Make the web come alive",
-      icon: "lightning"
+      icon: "lightning",
+      cardBorder: "border-yellow-200/70 hover:border-yellow-400",
+      logoBorder: "border-yellow-200/50"
     };
   }
   if (name.includes("react") || name.includes("mern")) {
@@ -1009,7 +1019,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-cyan-50 text-cyan-600",
       checkClass: "text-cyan-500",
       bannerMsg: "Build dynamic web applications",
-      icon: "code"
+      icon: "code",
+      cardBorder: "border-cyan-100 hover:border-cyan-300",
+      logoBorder: "border-cyan-100"
     };
   }
   if (name.includes("flutter")) {
@@ -1021,7 +1033,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-blue-50 text-blue-600",
       checkClass: "text-blue-500",
       bannerMsg: "Cross-platform mobile dev",
-      icon: "rocket"
+      icon: "rocket",
+      cardBorder: "border-blue-100 hover:border-blue-300",
+      logoBorder: "border-blue-100"
     };
   }
   if (name.includes("android")) {
@@ -1033,7 +1047,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-emerald-50 text-emerald-600",
       checkClass: "text-emerald-500",
       bannerMsg: "Build native Android apps",
-      icon: "rocket"
+      icon: "rocket",
+      cardBorder: "border-emerald-100 hover:border-emerald-300",
+      logoBorder: "border-emerald-100"
     };
   }
   if (name.includes("devops") || name.includes("kubernetes") || name.includes("docker")) {
@@ -1045,7 +1061,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-emerald-50 text-emerald-600",
       checkClass: "text-emerald-500",
       bannerMsg: "Automate & scale deployments",
-      icon: "rocket"
+      icon: "rocket",
+      cardBorder: "border-emerald-100 hover:border-emerald-300",
+      logoBorder: "border-emerald-100"
     };
   }
   if (name.includes("aws") || name.includes("azure") || name.includes("gcp") || name.includes("cloud")) {
@@ -1057,7 +1075,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-blue-50 text-blue-600",
       checkClass: "text-blue-500",
       bannerMsg: "Cloud architecture & scaling",
-      icon: "code"
+      icon: "code",
+      cardBorder: "border-blue-100 hover:border-blue-300",
+      logoBorder: "border-blue-100"
     };
   }
   if (name.includes("office") || name.includes("excel") || name.includes("tally")) {
@@ -1069,7 +1089,9 @@ const getCourseTheme = (courseName: string) => {
       badgeClass: "bg-emerald-50 text-emerald-600",
       checkClass: "text-emerald-500",
       bannerMsg: "Master business applications",
-      icon: "star"
+      icon: "star",
+      cardBorder: "border-emerald-100 hover:border-emerald-300",
+      logoBorder: "border-emerald-100"
     };
   }
   return {
@@ -1080,11 +1102,11 @@ const getCourseTheme = (courseName: string) => {
     badgeClass: "bg-blue-50 text-blue-600",
     checkClass: "text-blue-500",
     bannerMsg: "Enhance your skills today",
-    icon: "code"
+    icon: "code",
+    cardBorder: "border-slate-100 hover:border-slate-300",
+    logoBorder: "border-slate-100"
   };
-};
-
-const getPremiumLevelBadge = (level: string, badgeClass: string) => {
+};const getPremiumLevelBadge = (level: string, badgeClass: string) => {
   return (
     <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wide flex items-center gap-1.5 ${badgeClass}`}>
       <TrendingUp className="w-3 h-3" />
@@ -1094,9 +1116,10 @@ const getPremiumLevelBadge = (level: string, badgeClass: string) => {
 };
 const getCourseIcon = (courseName: string, categoryIcon: any) => {
   const name = courseName.toLowerCase();
+  const theme = getCourseTheme(courseName);
   
-  // Explicitly size SVGs inline so stylesheet overrides cannot crop or scale them incorrectly
-  const wrapperClass = "w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden";
+  // Explicitly size SVGs inline and use theme border color to prevent cropping
+  const wrapperClass = `w-14 h-14 rounded-2xl bg-white border ${theme.logoBorder} flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden`;
   const svgStyle = { width: '32px', height: '32px', flexShrink: 0 };
   
   if (name === "c programming") {
@@ -1129,7 +1152,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       <div className={wrapperClass}>
         <svg viewBox="0 0 128 128" style={svgStyle}>
           <path fill="#3776AB" d="M64 5.92c-32.06 0-30.04 13.91-30.04 13.91l.01 14.36h30.41v4.28H15.02s-14.28-1.63-14.28 30.04c0 31.67 12.63 30.41 12.63 30.41l11.29-.01v-15.9c0-19.16 15.54-18.73 15.54-18.73h26.47c19.16 0 18.73-15.54 18.73-15.54V18.73c0-19.16-17.65-12.81-17.65-12.81S80 5.92 64 5.92zm-12.81 7.21c2.37 0 4.29 1.91 4.29 4.28 0 2.37-1.92 4.29-4.29 4.29-2.37 0-4.28-1.92-4.28-4.29 0-2.37 1.91-4.28 4.28-4.28z" />
-          <path fill="#FFE873" d="M64 122.08c32.06 0 30.04-13.91 30.04-13.91l-.01-14.36H63.62v-4.28h49.36s14.28 1.63 14.28-30.04c0-31.67-12.63-30.41-12.63-30.41l-11.29.01v15.9c0 19.16-15.54 18.73-15.54 18.73H71.27c-19.16 0-18.73 15.54-18.73 15.54v26.47c0 19.16 17.65 12.81 17.65 12.81s13.78.01 29.81.01zm12.81-7.21c-2.37 0-4.29-1.91-4.29-4.28 0-2.37 1.92-4.29 4.29-4.29 2.37 0 4.28 1.92 4.28 4.29 0 2.37-1.91 4.28-4.28 4.28z" />
+          <path fill="#FFE873" d="M64 122.08c32.06 0 30.04-13.91 30.04-13.91l-.01-14.36H63.62v-4.28h49.36s14.28 1.63 14.28-30.04c0-31.67-12.63-30.41-12.63-30.41l-11.29.01v15.9c0 19.16-15.54 18.73-15.54 18.73H71.27c-19.16 0-18.73 15.54-18.73 15.54v26.47c0 19.16 17.65 12.81 17.65 12.81s13.78.01 29.81.01zm12.81-7.21c-2.37 0-4.29-1.91-4.29-4.28 0-2.37 1.92-4.29 4.29-4.29 2.37 0 4.28 1.92 4.28 4.29 0 2.37-1.91-4.28-4.28 4.28z" />
         </svg>
       </div>
     );
@@ -1139,7 +1162,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
     return (
       <div className={wrapperClass}>
         <svg viewBox="0 0 128 128" style={svgStyle}>
-          <path fill="#EA2D42" d="M85.7 94.3c-2.3 5.3-7.7 9.8-15.5 12.8-12 4.7-27.9 5.3-39.7 1.5-6.3-2-10.4-5.2-11.4-8.8-.7-2.6.2-5.3 2.4-7.8l2.2-2.3 2.2 2.3c2 2 5 3.8 8.6 5.1 9.9 3.6 24 3.7 34.3.4 9.1-3 14.8-7.8 14.8-12.7 0-.7-.1-1.4-.3-2.1L81.2 80c2.8 1.9 4.3 4.2 4.5 6.6.3 2.9-.6 5.7-2.3 7.7z" />
+          <path fill="#EA2D42" d="M85.7 94.3c-2.3 5.3-7.7 9.8-15.5 12.8-12 4.7-27.9 5.3-39.7 1.5-6.3-2-10.4-5.2-11.4-8.8-.7-2.6.2-5.3 2.4-7.8l2.2-2.3 2.2 2.3c2 2 5 3.8 8.6 5.1(9.9 3.6 24 3.7 34.3.4 9.1-3 14.8-7.8 14.8-12.7 0-.7-.1-1.4-.3-2.1L81.2 80c2.8 1.9 4.3 4.2 4.5 6.6.3 2.9-.6 5.7-2.3 7.7z" />
           <path fill="#305D7C" d="M98.9 76.5c-4.4 7.6-14 13.3-25.7 15.3-7.5 1.3-15.3.8-22.3-1.4-10.6-3.4-17.1-9.9-17-17 .1-8.1 7.2-15.6 18.5-19.7 6.4-2.3 13.5-3.3 20.3-2.7 10.9 1 19.3 5.3 23.3 11.9 2.5 4.2 3.6 8.9 2.9 13.6zm-17.4-4.8c1-1.6 1.5-3.4 1.4-5.3 0-6.1-5.1-11-11.3-11s-11.3 4.9-11.3 11 5.1 11 11.3 11c3.8-.1 7.3-2.2 9.9-5.7z" />
           <path fill="#EA2D42" d="M68.5 2.1C65.3 10.4 72.8 17.5 70 25.8c-2.3 6.8-8.8 10.8-7.5 18.9 1.4 9 11.3 13 8.3 22.4-.7 2.3-2.2 4.3-3.8 5.8 4.5-1.7 8.3-5.1 9.7-10.3 2.1-8.1-4.5-13.5-1.6-21.8 2.6-7.4 9.1-10.8 7.9-19.1-1.2-8.3-9.7-12.7-7.3-21.7C67.2 7.3 68.6 4.3 69.8 2.1c-1.3 0-1.3 0 0 0z" />
         </svg>
@@ -1150,9 +1173,8 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   if (name.includes("javascript") || name.includes("front-end")) {
     return (
       <div className={wrapperClass}>
-        <svg viewBox="0 0 128 128" style={svgStyle}>
-          <path fill="#F7DF1E" d="M1.4 1.4h125.2v125.2H1.4V1.4z" />
-          <path fill="#000000" d="M118.2 100.7c-2.3-4-5.2-7.3-9.8-9.8-3.7-2-8.3-3.1-15.8-3.1-4 0-7.8.6-10.4 1.4-2.8 1.1-5.1 2.8-6.3 5.4-2 3.4-2 8.3-.3 11.8 1.4 2.8 3.7 4.8 6.9 6 3.7 1.4 9.8 2.8 17.3 4 10.4 1.7 17.3 3.7 21.6 6.6 4.8 3.1 8 7.5 9.2 13 1.1 4.3.9 9.8-.9 14.7-2.3 6.3-6.6 11.3-12.7 14.1-6 2.8-14.7 4-25.1 4-11.8 0-21-2.3-27.7-6.9-6.3-4.3-9.5-10.4-10.1-20.5h18.7c.6 5.4 2.6 9.2 6 11.5 4.3 2.8 11.2 4 19.9 4 7.2 0 12.7-.9 15.8-2.6 3.4-1.7 5.1-4.3 5.1-8.3 0-3.4-1.4-6-4.6-7.8-2.6-1.7-7.2-2.8-14.1-4-10.9-1.7-18.7-3.4-23.3-6.3-5.4-3.1-8.9-7.8-10.1-13.8-1.1-4.8-.6-10.4 1.7-15.3 2.8-6 7.5-10.4 13.8-12.7 6.3-2.3 14.7-3.4 24.5-3.4 10.9 0 19.3 2 25.1 5.7 5.4 3.4 8.6 8.3 9.8 15.8H118.2zm-67.4-48.4v68.3c0 8-.6 13.8-2 17.6-1.7 4.6-5.1 8.3-9.8 10.4-4.8 2.3-11.8 3.1-21.3 3.1-6.6 0-12.1-.6-16.1-1.7-4-1.1-7.2-2.8-9.8-5.1-2-1.7-3.7-4-4.6-6.9-.9-2.8-.9-7.2-.9-12.7h18.7c0 4 .9 6.6 2.3 8 2.3 2 6 2.8 11.2 2.8 5.7 0 9.5-1.1 11.2-3.1 1.7-2 2.3-6 2.3-12.4V52.3h19.1z" />
+        <svg viewBox="0 0 24 24" style={svgStyle}>
+          <path fill="#F7DF1E" d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
         </svg>
       </div>
     );
@@ -1205,7 +1227,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
     return (
       <div className={wrapperClass}>
         <svg viewBox="0 0 24 24" style={svgStyle} stroke="#10B981" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 12c0-3.31-2.69-6-6-6-2.44 0-4.5 1.5-5.5 3.5-1-2-3.06-3.5-5.5-3.5-3.31 0-6 2.69-6 6s2.69 6 6 6c2.44 0 4.5-1.5 5.5-3.5 1 2 3.06 3.5 5.5 3.5 3.31 0 6-2.69 6-6z" />
+          <path d="M22 12c0-3.31-2.69-6-6-6-2.44 0-4.5 1.5-5.5 3.5-1-2-3.06-3.5-5.5-3.5-3.5 0-6 2.69-6 6s2.69 6 6 6c2.44 0 4.5-1.5 5.5-3.5 1 2 3.06 3.5 5.5 3.5 3.31 0 6-2.69 6-6z" />
         </svg>
       </div>
     );
@@ -1286,6 +1308,11 @@ const getLevelBadge = (level: string) => {
 
 function Courses() {
   const [active, setActive] = useState(-1); // -1 is All Courses
+  const [enquiryCourse, setEnquiryCourse] = useState<string | null>(null);
+  const [studentName, setStudentName] = useState("");
+  const [studentPhone, setStudentPhone] = useState("");
+  const [studentEmail, setStudentEmail] = useState("");
+  const [studentEdu, setStudentEdu] = useState("");
 
   const activeGroup = active === -1 ? { title: "All Courses", icon: Code2, courses: ALL_COURSES_LIST } : COURSE_GROUPS[active];
 
@@ -1423,60 +1450,190 @@ function Courses() {
         </div>
 
         {/* Part 3: Course Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {activeGroup.courses.map((c, i) => {
-            const courseBg = getCourseBg(c.name, activeGroup.title);
             const courseIcon = getCourseIcon(c.name, activeGroup.icon);
             const courseBullets = getCourseBullets(c);
+            const theme = getCourseTheme(c.name);
+            
+            // Determine footer icon
+            let FooterIcon = Code2; // Default code braces
+            if (theme.icon === "rocket") FooterIcon = Rocket;
+            if (theme.icon === "star") FooterIcon = Star;
+            if (theme.icon === "lightning") FooterIcon = Zap;
 
             return (
               <Reveal key={c.name} delay={i * 0.03}>
-                <div className={`course-card-uiverse group ${courseBg}`}>
-                  {/* Top: Level Badge */}
-                  <div className="absolute right-4 top-4 z-10 transition-all duration-300 group-hover:scale-105">
-                    {getLevelBadge(c.level)}
-                  </div>
-
-                  {/* Profile Pic: Course Icon */}
-                  <div className="profile-pic">
-                    {courseIcon}
-                  </div>
-
-                  {/* Sliding Panel: Bottom */}
-                  <div className="bottom">
-                    <div className="content">
-                      <span className="name">{c.name}</span>
-                      <span className="about-me">{c.desc}</span>
+                <div 
+                  className={`group relative bg-white border rounded-[28px] p-6 pb-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:-translate-y-1 h-[350px] overflow-hidden ${theme.cardBorder}`}
+                  style={{ backgroundImage: theme.gradient, backgroundRepeat: "no-repeat" }}
+                >
+                  <div className="relative z-10 flex flex-col">
+                    {/* Top Row: Brand Icon Box + Level Badge */}
+                    <div className="flex items-start justify-between">
+                      {/* Brand Logo inside a white shadow-box exactly like Image 1 */}
+                      {courseIcon}
                       
-                      {/* Bullets List */}
-                      <div className="bullets-list space-y-2">
-                        {courseBullets.map((bullet: string, idx: number) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 font-semibold">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308] flex-shrink-0" />
-                            <span className="truncate">{bullet}</span>
-                          </div>
-                        ))}
+                      {/* Level Badge */}
+                      <div className="flex-shrink-0">
+                        {getPremiumLevelBadge(c.level, theme.badgeClass)}
                       </div>
                     </div>
 
-                    <div className="bottom-bottom">
-                      <div className="flex flex-col text-left">
-                        <span className="text-[9px] uppercase tracking-wider text-slate-400 font-black">Duration</span>
-                        <span className="text-xs font-extrabold text-[#020617] mt-0.5">{c.dur}</span>
-                      </div>
-
-                      <a href="#contact" className="button">
-                        Enquiry <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                    {/* Course Title and Description */}
+                    <div className="text-left mt-3">
+                      <h3 className="font-display font-extrabold text-slate-900 text-lg leading-tight tracking-wide">{c.name}</h3>
+                      <p className="text-xs text-slate-500 font-medium mt-1.5 leading-relaxed line-clamp-2">{c.desc}</p>
                     </div>
+
+                    {/* Bullet List Checklist (glowing checkmarks) */}
+                    <div className="mt-3 space-y-1.5">
+                      {courseBullets.map((bullet: string, idx: number) => (
+                        <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-600 font-bold leading-normal text-left">
+                          <CheckCircle2 className={`w-4 h-4 ${theme.checkClass} flex-shrink-0`} strokeWidth={2.5} />
+                          <span className="truncate">{bullet}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Enquiry Now Option (WhatsApp green & logo) */}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setEnquiryCourse(c.name);
+                      }}
+                      className="mt-3 w-full py-2 rounded-xl bg-[#25D366] text-white text-[10px] font-black uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm hover:brightness-105 active:translate-y-[0.5px] border-0"
+                    >
+                      <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z"/>
+                      </svg>
+                      Enquiry Now
+                    </button>
                   </div>
+
+                  {/* Footer Banner: Full Width colored section matching Image 1 */}
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setEnquiryCourse(c.name);
+                    }}
+                    className={`w-[calc(100%+3rem)] mx-[-1.5rem] mt-auto h-12 flex items-center justify-between px-6 rounded-b-[28px] ${theme.bannerBg} ${theme.bannerText} transition-all duration-300 decoration-none text-left cursor-pointer`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <FooterIcon className="w-4 h-4 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-[11px] font-black tracking-wide uppercase">{theme.bannerMsg}</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
+                  </button>
                 </div>
               </Reveal>
             );
           })}
         </div>
-
       </div>
+
+      {/* WhatsApp Lead Generation Modal Overlay */}
+      {enquiryCourse && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-3xl p-6 max-w-md w-full border border-slate-100 shadow-2xl relative text-left transition-all">
+            {/* Close Button */}
+            <button 
+              onClick={() => setEnquiryCourse(null)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition p-1.5 rounded-full hover:bg-slate-100"
+              aria-label="Close modal"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <h3 className="font-display font-black text-slate-900 text-lg leading-tight">
+              Enquiry for <span className="text-[#D97706]">{enquiryCourse}</span>
+            </h3>
+            <p className="text-[11px] text-slate-500 font-semibold mt-1">
+              Please enter your details below to start the enquiry on WhatsApp.
+            </p>
+            
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                const text = `*New Course Inquiry*\n\n` +
+                             `*Course:* ${enquiryCourse}\n` +
+                             `*Name:* ${studentName}\n` +
+                             `*Phone:* ${studentPhone}\n` +
+                             `*Education:* ${studentEdu}\n` +
+                             (studentEmail ? `*Email:* ${studentEmail}\n` : "");
+                const waUrl = `https://api.whatsapp.com/send?phone=917989033585&text=${encodeURIComponent(text)}`;
+                window.open(waUrl, "_blank");
+                setEnquiryCourse(null);
+                setStudentName("");
+                setStudentPhone("");
+                setStudentEmail("");
+                setStudentEdu("");
+              }} 
+              className="mt-5 space-y-4"
+            >
+              <div>
+                <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Your Name</label>
+                <input 
+                  type="text" 
+                  required 
+                  placeholder="Enter your name" 
+                  value={studentName}
+                  onChange={(e) => setStudentName(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Phone Number</label>
+                <input 
+                  type="tel" 
+                  required 
+                  placeholder="+91 " 
+                  value={studentPhone}
+                  onChange={(e) => setStudentPhone(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Education / Qualification</label>
+                <input 
+                  type="text" 
+                  required 
+                  placeholder="e.g. B.Tech, MCA, Degree" 
+                  value={studentEdu}
+                  onChange={(e) => setStudentEdu(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Email Address (Optional)</label>
+                <input 
+                  type="email" 
+                  placeholder="yourname@gmail.com" 
+                  value={studentEmail}
+                  onChange={(e) => setStudentEmail(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
+                />
+              </div>
+              
+              <button 
+                type="submit" 
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm bg-[#25D366] hover:brightness-110 shadow transition active:translate-y-[1px] mt-2"
+              >
+                <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z"/>
+                </svg>
+                Send Enquiry via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -2360,9 +2517,9 @@ function FAQ() {
   const [open, setOpen] = useState(0);
   return (
     <section className="py-10 bg-gradient-to-b from-background to-secondary/30">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" />
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           {FAQS.map((f, i) => (
             <Reveal key={f.q} delay={i}>
               <div className="rounded-2xl bg-card border border-border overflow-hidden">
@@ -2415,57 +2572,115 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-10 bg-background">
+    <section id="contact" className="py-10 bg-[#fafafa] border-t border-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Contact Us" title="Let's Start Your Journey" sub="Visit our campus, drop us a message, or say hello — we're here to help." />
-        <div className="grid lg:grid-cols-2 gap-8">
-          <Reveal>
-            <div className="rounded-3xl overflow-hidden border border-border h-full min-h-[420px] bg-secondary">
-              <iframe
-                title="YUGA Tech Academy location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0209068325703!2d83.32215464999999!3d17.743654049999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39434ce07ebcfb%3A0x3f70f3043e152eef!2sBhanu%20Nagar%2C%20H%20B%20Colony%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1784179123614!5m2!1sen!2sin"
-                className="w-full h-full min-h-[420px] border-0"
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
+        
+        {/* Map & Form Row */}
+        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          {/* Left: Google Map (sleeker, aligned, shorter) */}
+          <div className="lg:col-span-5 relative">
+            <Reveal className="h-full">
+              <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-[360px] lg:h-full min-h-[340px] bg-white p-1">
+                <iframe
+                  title="YUGA Tech Academy location"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.064688939898!2d83.32055797517313!3d17.74159088320733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQ0JzI5LjciTiA4M8KwMTknMjMuMyJF!5e0!3m2!1sen!2sin!4v1784200100695!5m2!1sen!2sin"
+                  className="w-full h-full rounded-[20px] border-0"
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right: Sleeker Form */}
+          <div className="lg:col-span-7">
+            <Reveal delay={0.05}>
+              <div className="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+                <form onSubmit={handleSubmit} className="grid gap-3">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <Input label="Full Name" name="name" placeholder="Your name" required />
+                    <Input label="Phone" name="phone" type="tel" placeholder="+91 " required />
+                  </div>
+                  
+                  <Input label="Email" name="email" type="email" placeholder="you@email.com" required />
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-800 mb-1.5">Course Interested</label>
+                    <select 
+                      name="course" 
+                      required 
+                      className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
+                    >
+                      <option value="">Select a course…</option>
+                      {COURSE_GROUPS.flatMap((g) => g.courses.map((c) => (
+                        <option key={g.title + c.name} value={`${g.title} — ${c.name}`}>${g.title} — ${c.name}</option>
+                      )))}
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-800 mb-1.5">Message</label>
+                    <textarea 
+                      name="message" 
+                      rows={2} 
+                      placeholder="Tell us about your goals…" 
+                      className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 resize-none font-medium transition-all" 
+                    />
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    style={{ background: "var(--gradient-navy)" }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-bold text-sm shadow hover:brightness-110 transition-all active:translate-y-[1px]"
+                  >
+                    {sent ? "Message Sent ✓" : (<>Send Message <Send className="w-4 h-4" /></>)}
+                  </button>
+                </form>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Premium Horizontal Info Row Below */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-200">
+          <Reveal delay={0.1}>
+            <div className="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.01)] h-full">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#D97706]"><MapPin className="w-5 h-5" /></div>
+              <div className="text-left">
+                <h5 className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold">Address</h5>
+                <p className="text-[11px] text-slate-700 font-bold mt-1.5 leading-relaxed">
+                  Dr No: 54-11-38/2, 2nd Floor, Bhanu Nagar, V.S. Krishna College Road, Visakhapatnam – 530022
+                </p>
+              </div>
             </div>
           </Reveal>
-          <Reveal delay={1}>
-            <div className="rounded-3xl bg-card border border-border p-7 shadow-[var(--shadow-elegant)]">
-              <form onSubmit={handleSubmit} className="grid gap-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Input label="Full Name" name="name" placeholder="Your name" required />
-                  <Input label="Phone" name="phone" type="tel" placeholder="+91 " required />
-                </div>
-                <Input label="Email" name="email" type="email" placeholder="you@email.com" required />
-                <div>
-                  <label className="block text-sm font-semibold text-navy-deep mb-1.5">Course Interested</label>
-                  <select name="course" required className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold">
-                    <option value="">Select a course…</option>
-                    {COURSE_GROUPS.flatMap((g) => g.courses.map((c) => (
-                      <option key={g.title + c.name} value={`${g.title} — ${c.name}`}>{g.title} — {c.name}</option>
-                    )))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-navy-deep mb-1.5">Message</label>
-                  <textarea name="message" rows={4} placeholder="Tell us about your goals…" className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold resize-none" />
-                </div>
-                <button type="submit" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl btn-gold btn-gold-hover font-semibold">
-                  {sent ? "Message Sent ✓" : (<>Send Message <Send className="w-4 h-4" /></>)}
-                </button>
-              </form>
+          
+          <Reveal delay={0.15}>
+            <div className="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.01)] h-full">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#D97706]"><Mail className="w-5 h-5" /></div>
+              <div className="text-left">
+                <h5 className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold">Email</h5>
+                <p className="text-sm text-slate-700 font-bold mt-1.5">
+                  <a href="mailto:info@yugatechacademy.com" className="hover:text-[#D97706] transition-colors">
+                    info@yugatechacademy.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </Reveal>
 
-              <div className="mt-8 grid gap-3 pt-6 border-t border-border">
-                <InfoLine icon={MapPin} label="Address" value="Dr No: 54-11-38/2, 2nd Floor, Bhanu Nagar, V.S. Krishna College Road, Visakhapatnam – 530022" />
-                <InfoLine icon={Mail} label="Email" value="info@yugatechacademy.com" />
-                <InfoLine icon={Phone} label="Phone" value="+91 79890 33585" />
-                <div className="flex items-center gap-3 pt-2">
-                  {[Facebook, Instagram, Linkedin, Youtube].map((I, k) => (
-                    <a key={k} href="#" aria-label="Social" className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary hover:btn-gold text-navy-deep transition"><I className="w-5 h-5" /></a>
-                  ))}
-                </div>
+          <Reveal delay={0.2}>
+            <div className="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.01)] h-full">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#D97706]"><Phone className="w-5 h-5" /></div>
+              <div className="text-left">
+                <h5 className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold">Phone</h5>
+                <p className="text-sm text-slate-700 font-bold mt-1.5">
+                  <a href="tel:+917989033585" className="hover:text-[#D97706] transition-colors">
+                    +91 79890 33585
+                  </a>
+                </p>
               </div>
             </div>
           </Reveal>
@@ -2474,12 +2689,11 @@ function Contact() {
     </section>
   );
 }
-
 function Input({ label, ...p }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-navy-deep mb-1.5">{label}</label>
-      <input {...p} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" />
+      <label className="block text-sm font-semibold text-slate-800 mb-1.5">{label}</label>
+      <input {...p} className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all" />
     </div>
   );
 }
