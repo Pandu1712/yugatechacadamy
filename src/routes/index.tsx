@@ -939,11 +939,9 @@ const getCourseBullets = (course: any) => {
 const getCourseIcon = (courseName: string, categoryIcon: any) => {
   const name = courseName.toLowerCase();
   
-  // Outer wrapper container styles
-  const wrapperClass = "profile-pic-inner overflow-hidden flex-shrink-0";
-  
-  // SVG brand classes
-  const svgClass = "transition-all duration-400 flex-shrink-0";
+  // Clean transparent container for all logos to render natively inside the card's glass badge
+  const wrapperClass = "w-10 h-10 flex items-center justify-center flex-shrink-0 overflow-hidden";
+  const svgClass = "w-8 h-8 flex-shrink-0";
   
   if (name === "c programming") {
     return (
