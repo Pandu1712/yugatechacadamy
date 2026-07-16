@@ -1015,13 +1015,33 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
     );
   }
 
-  if (name.includes("aws") || name.includes("azure") || name.includes("gcp") || name.includes("google cloud") || name.includes("cloud")) {
+  if (name.includes("aws") || (name.includes("cloud") && !name.includes("azure") && !name.includes("gcp") && !name.includes("google"))) {
     return (
       <div className={wrapperClass}>
         <svg viewBox="0 0 256 256" className={svgClass}>
           <path fill="#232F3E" d="M110.2 163.6c-4.4 7-11 11.2-19.8 12.8-12 2.2-24.2-2.2-30.8-11-4.4-6-6.6-13-6.6-21v-30c0-15.4 8.8-26.4 22-29.7 13.2-3.3 26.4 1 33 11 6.6 9.9 8.8 23 8.8 38.5v30c0 4.4-.8 7.7-2.2 9.9-1.4 2.2-2.6 4.4-4.4 6.6zm-17.6-43c0-12-.5-19.8-3.3-24.2-2.8-4.4-7.7-6.6-13.2-6.6-5.5 0-9.9 2.2-12.7 6.6-2.8 4.4-3.3 12.1-3.3 24.2v22c0 12.1.5 19.8 3.3 24.2 2.8 4.4 7.2 6.6 12.7 6.6 5.5 0 10.4-2.2 13.2-6.6 2.8-4.4 3.3-12.1 3.3-24.2v-22z" />
           <path fill="#FF9900" d="M30 185c40 32 105 45 156 36 28-5 54-15 70-26 5-3 5-7 1-10s-7-2-11 1c-15 10-38 18-62 23-45 8-105-2-141-28-5-4-10-3-13 1s-2 9 0 13z" />
           <path fill="#FF9900" d="M246 171c-3-11-15-28-21-33-3-3-7-1-6 3 2 12 5 32-2 42-2 3-1 6 3 5 11-4 28-11 31-15 3-1 0-7-5-12z" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (name.includes("azure")) {
+    return (
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 24 24" className={svgClass} style={{ fill: "#0078D4" }}>
+          <path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (name.includes("gcp") || name.includes("google")) {
+    return (
+      <div className={wrapperClass}>
+        <svg viewBox="0 0 24 24" className={svgClass} style={{ fill: "#4285F4" }}>
+          <path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z" />
         </svg>
       </div>
     );
@@ -1258,8 +1278,8 @@ function Courses() {
             return (
               <Reveal key={c.name} delay={i * 0.03}>
                 <div className={`course-card-uiverse group ${courseBg}`}>
-                  {/* Top: Level Badge (fades out on hover) */}
-                  <div className="absolute right-4 top-4 z-10 transition-all group-hover:opacity-0 group-hover:scale-95 duration-300">
+                  {/* Top: Level Badge */}
+                  <div className="absolute right-4 top-4 z-10 transition-all duration-300 group-hover:scale-105">
                     {getLevelBadge(c.level)}
                   </div>
 
@@ -1277,7 +1297,7 @@ function Courses() {
                       {/* Bullets List */}
                       <div className="bullets-list space-y-2">
                         {courseBullets.map((bullet: string, idx: number) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs text-white/90 font-medium">
+                          <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 font-semibold">
                             <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308] flex-shrink-0" />
                             <span className="truncate">{bullet}</span>
                           </div>
@@ -1287,8 +1307,8 @@ function Courses() {
 
                     <div className="bottom-bottom">
                       <div className="flex flex-col text-left">
-                        <span className="text-[9px] uppercase tracking-wider text-white/50 font-bold">Duration</span>
-                        <span className="text-xs font-bold text-white mt-0.5">{c.dur}</span>
+                        <span className="text-[9px] uppercase tracking-wider text-slate-400 font-black">Duration</span>
+                        <span className="text-xs font-extrabold text-[#020617] mt-0.5">{c.dur}</span>
                       </div>
 
                       <a href="#contact" className="button">
