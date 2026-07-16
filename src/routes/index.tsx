@@ -15,7 +15,7 @@ import logoImg from "@/assets/yugaacademy-logo.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200" },
+      { property: "og:image", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
     ],
   }),
   component: Home,
