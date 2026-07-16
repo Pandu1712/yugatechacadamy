@@ -85,13 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://yugatechacademy.com" },
-      { property: "og:image", content: "/yugaacademy-logo.jpeg" },
+      { property: "og:image", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
       
       // Twitter Card Meta Tags
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "YUGA Tech Academy — Learn. Build. Excel." },
       { name: "twitter:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
-      { name: "twitter:image", content: "/yugaacademy-logo.jpeg" },
+      { name: "twitter:image", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
