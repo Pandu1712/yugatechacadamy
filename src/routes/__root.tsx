@@ -118,13 +118,13 @@ function RootShell({ children }: { children: ReactNode }) {
         <meta name="google-site-verification" content="ENTER_YOUR_GSC_VERIFICATION_CODE_HERE" />
         
         {/* Google Analytics (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD9P8B1YKB" />
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-YOUR_MEASUREMENT_ID');
+            gtag('config', 'G-CD9P8B1YKB');
           `
         }} />
       </head>
