@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
@@ -6,7 +6,7 @@ import {
   TestTube2, Calculator, Baby, GraduationCap, Briefcase, Users, Award, Rocket, Target,
   MessageCircle, FileText, MonitorPlay, Building2, Presentation, BookOpen, CheckCircle2,
   Star, MapPin, Mail, Phone, Facebook, Instagram, Linkedin, Youtube, Send, ChevronDown,
-  Layers, Server, Terminal, Cpu, Zap, Trophy, HeartHandshake, Clock, ChevronLeft, ChevronRight, TrendingUp, Calendar,
+  Layers, Server, Terminal, Cpu, Zap, Trophy, HeartHandshake, Clock, ChevronLeft, ChevronRight, TrendingUp, Calendar, Plus, Minus,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/about.jpg";
@@ -62,6 +62,7 @@ const NAV = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Courses", href: "#courses" },
+  { label: "Kids Course", href: "/kids-course", isRoute: true },
   { label: "Services", href: "#services" },
   { label: "Placements", href: "#placements" },
   { label: "Testimonials", href: "#testimonials" },
@@ -120,6 +121,17 @@ function Navbar() {
           <nav className="hidden lg:flex items-center gap-6">
             {NAV.map((n) => {
               const isActive = activeHash === n.href;
+              if (n.isRoute) {
+                return (
+                  <Link
+                    key={n.href}
+                    to={n.href}
+                    className="relative py-2 text-sm font-semibold text-white/80 hover:text-[#EAB308] transition-colors tracking-wide"
+                  >
+                    {n.label}
+                  </Link>
+                );
+              }
               return (
                 <a key={n.href} href={n.href}
                   onClick={() => setActiveHash(n.href)}
@@ -153,6 +165,19 @@ function Navbar() {
             <div className="px-4 py-4 flex flex-col gap-1">
               {NAV.map((n) => {
                 const isActive = activeHash === n.href;
+                if (n.isRoute) {
+                  return (
+                    <Link
+                      key={n.href}
+                      to={n.href}
+                      onClick={() => setOpen(false)}
+                      className="px-3 py-2.5 rounded-lg text-sm font-black text-[#EAB308] bg-[#EAB308]/10 border border-[#EAB308]/30 flex items-center justify-between"
+                    >
+                      <span>{n.label}</span>
+                      <span className="text-[10px] bg-[#EAB308] text-slate-950 font-black px-2 py-0.5 rounded-full">AGES 6-16</span>
+                    </Link>
+                  );
+                }
                 return (
                   <a key={n.href} href={n.href} 
                     onClick={() => {
@@ -1276,7 +1301,9 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       <CatIcon className="text-slate-700 flex-shrink-0" style={svgStyle} />
     </div>
   );
-};const getCourseBg = (courseName: string, categoryName: string) => {
+};
+
+const getCourseBg = (courseName: string, categoryName: string) => {
   const name = courseName.toLowerCase();
   const cat = categoryName.toLowerCase();
   if (name === "c programming") return "bg-slate-50/60 border-slate-200/60";
@@ -1290,9 +1317,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
   if (cat.includes("cloud")) return "bg-cyan-50/30 border-cyan-200/30";
   if (cat.includes("testing")) return "bg-emerald-50/30 border-emerald-200/30";
   return "bg-slate-50/40 border-slate-200/30";
-};
-
-const getLevelBadge = (level: string) => {
+};const getLevelBadge = (level: string) => {
   const lvl = level.toLowerCase();
   if (lvl === "beginner") {
     return <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] rounded-full px-2.5 py-1 text-xs font-semibold">Beginner</span>;
@@ -1313,6 +1338,19 @@ function Courses() {
   const [studentPhone, setStudentPhone] = useState("");
   const [studentEmail, setStudentEmail] = useState("");
   const [studentEdu, setStudentEdu] = useState("");
+
+  useEffect(() => {
+    const handleSelectCategory = (e: Event) => {
+      const customEv = e as CustomEvent<{ index: number }>;
+      if (typeof customEv.detail?.index === "number") {
+        setActive(customEv.detail.index);
+      }
+    };
+    window.addEventListener("selectCourseCategory", handleSelectCategory);
+    return () => {
+      window.removeEventListener("selectCourseCategory", handleSelectCategory);
+    };
+  }, []);
 
   const activeGroup = active === -1 ? { title: "All Courses", icon: Code2, courses: ALL_COURSES_LIST } : COURSE_GROUPS[active];
 
@@ -1638,8 +1676,6 @@ function Courses() {
   );
 }
 
-
-
 /* ---------- services ---------- */
 const SERVICES = [
   { 
@@ -1903,13 +1939,13 @@ const OFFERS = [
 const RECRUITERS = ["TCS", "Infosys", "Wipro", "Accenture", "Cognizant", "Tech Mahindra", "HCL", "Virtusa", "Capgemini", "Deloitte"];
 
 const getRecruiterLogo = (name: string) => {
-  const n = name.toLowerCase();
+  const n = name.toLowerCase().replace(/\s+/g, "");
   if (n === "tcs") {
     return (
-      <div className="flex items-center gap-1">
-        <span className="font-sans font-black text-[#011e41] text-base leading-none">tcs</span>
-        <div className="w-[1px] h-3.5 bg-slate-300" />
-        <div className="text-[5px] font-bold text-slate-400 leading-none text-left">
+      <div className="flex items-center gap-1.5 h-7">
+        <span className="font-sans font-black text-xl text-[#011e41] leading-none">tcs</span>
+        <div className="w-[1.5px] h-5 bg-slate-300" />
+        <div className="text-[7px] font-extrabold text-slate-500 leading-tight text-left uppercase tracking-tighter">
           TATA<br />CONSULTANCY<br />SERVICES
         </div>
       </div>
@@ -1917,58 +1953,74 @@ const getRecruiterLogo = (name: string) => {
   }
   if (n === "infosys") {
     return (
-      <span className="font-sans font-black text-sm text-[#007cc3] italic tracking-tight">
-        Infosys
-      </span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-xl text-[#007cc3] italic tracking-tighter leading-none">
+          Infosys
+        </span>
+      </div>
     );
   }
   if (n === "wipro") {
     return (
-      <div className="flex items-center gap-1">
-        <div className="w-3 h-3 rounded-full bg-gradient-to-tr from-purple-500 via-blue-500 to-green-500 opacity-80" />
-        <span className="font-sans font-extrabold text-[10px] text-[#0c2340] leading-none">wipro</span>
+      <div className="flex items-center gap-1.5 h-7">
+        <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-purple-600 via-blue-500 to-green-500 opacity-90 shrink-0" />
+        <span className="font-sans font-black text-lg text-[#0c2340] leading-none tracking-tight">wipro</span>
       </div>
     );
   }
   if (n === "accenture") {
     return (
-      <div className="flex items-center gap-0.5">
-        <span className="font-sans font-black text-[#000000] text-xs leading-none">accenture</span>
-        <span className="text-[#A100FF] font-black text-xs font-display leading-none">&gt;</span>
+      <div className="flex items-center gap-0.5 h-7">
+        <span className="font-sans font-black text-lg text-[#000000] leading-none tracking-tight">accenture</span>
+        <span className="text-[#A100FF] font-black text-xl font-display leading-none">&gt;</span>
       </div>
     );
   }
   if (n === "cognizant") {
     return (
-      <span className="font-sans font-black text-sm text-[#002f6c] leading-none">Cognizant</span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-xl text-[#002f6c] leading-none tracking-tight">Cognizant</span>
+      </div>
     );
   }
   if (n === "techmahindra") {
     return (
-      <div className="flex flex-col items-center">
-        <span className="font-sans font-black text-[9px] text-[#e2001a] leading-none">Tech</span>
-        <span className="font-sans font-light text-[6px] text-slate-700 tracking-[0.15em] leading-none mt-0.5">Mahindra</span>
+      <div className="flex flex-col items-center justify-center h-7">
+        <span className="font-sans font-black text-sm text-[#e2001a] leading-none">Tech</span>
+        <span className="font-sans font-bold text-[8px] text-slate-700 tracking-[0.18em] uppercase leading-none mt-0.5">Mahindra</span>
       </div>
     );
   }
   if (n === "hcl") {
     return (
-      <span className="font-sans font-black text-[#00529b] text-sm tracking-tight leading-none">HCL</span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-xl text-[#00529b] tracking-tight leading-none">HCL</span>
+      </div>
     );
   }
   if (n === "virtusa") {
     return (
-      <span className="font-sans font-extrabold text-xs leading-none">virtusa</span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-xl text-[#0e2a47] leading-none tracking-tight">virtusa</span>
+      </div>
     );
   }
   if (n === "capgemini") {
     return (
-      <span className="font-sans font-black text-[#0070ad] text-xs leading-none">Capgemini◆</span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-lg text-[#0070ad] leading-none tracking-tight flex items-center gap-0.5">
+          Capgemini<span className="text-xs text-[#0070ad]">◆</span>
+        </span>
+      </div>
     );
   }
   if (n === "deloitte") {
     return (
-      <span className="font-sans font-black text-[#000000] text-xs leading-none">Deloitte<span className="text-[#86bc25] font-black">.</span></span>
+      <div className="flex items-center h-7">
+        <span className="font-sans font-black text-xl text-[#000000] leading-none tracking-tight">
+          Deloitte<span className="text-[#86bc25] font-black text-2xl leading-none">.</span>
+        </span>
+      </div>
     );
   }
   return null;
@@ -2147,7 +2199,7 @@ function Placements() {
 
         <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-6 items-center justify-items-center mt-6 bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
           {RECRUITERS.map((r) => (
-            <div key={r} className="flex items-center justify-center h-10">
+            <div key={r} className="flex items-center justify-center h-12 w-full py-1">
               {getRecruiterLogo(r)}
             </div>
           ))}
@@ -2514,25 +2566,40 @@ const FAQS = [
   { q: "Do you provide internships?", a: "Yes. Real-world internships are integrated into all our professional programs." },
 ];
 function FAQ() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
   return (
     <section className="py-10 bg-gradient-to-b from-background to-secondary/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           {FAQS.map((f, i) => (
-            <Reveal key={f.q} delay={i}>
-              <div className="rounded-2xl bg-card border border-border overflow-hidden">
-                <button onClick={() => setOpen(open === i ? -1 : i)}
-                  className="w-full flex items-center justify-between gap-4 p-5 text-left">
-                  <span className="font-display font-semibold text-navy-deep">{f.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-gold shrink-0 transition-transform ${open === i ? "rotate-180" : ""}`} />
+            <Reveal key={f.q} delay={i * 0.03}>
+              <div className="rounded-2xl bg-card border border-border overflow-hidden shadow-sm hover:border-gold/40 transition-colors">
+                <button
+                  onClick={() => setOpen(open === i ? -1 : i)}
+                  className="w-full flex items-center justify-between gap-4 p-5 text-left font-display font-semibold text-navy-deep hover:text-gold transition-colors"
+                >
+                  <span>{f.q}</span>
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-50 text-gold font-bold">
+                    {open === i ? (
+                      <Minus className="w-4 h-4 text-gold shrink-0" />
+                    ) : (
+                      <Plus className="w-4 h-4 text-gold shrink-0" />
+                    )}
+                  </div>
                 </button>
                 <AnimatePresence>
                   {open === i && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }} className="overflow-hidden">
-                      <div className="px-5 pb-5 text-muted-foreground leading-relaxed">{f.a}</div>
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        {f.a}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -2542,6 +2609,15 @@ function FAQ() {
         </div>
       </div>
     </section>
+  );
+}
+
+function Input({ label, ...p }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <div>
+      <label className="block text-sm font-semibold text-slate-800 mb-1.5">{label}</label>
+      <input {...p} className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all" />
+    </div>
   );
 }
 
@@ -2615,7 +2691,7 @@ function Contact() {
                     >
                       <option value="">Select a course…</option>
                       {COURSE_GROUPS.flatMap((g) => g.courses.map((c) => (
-                        <option key={g.title + c.name} value={`${g.title} — ${c.name}`}>${g.title} — ${c.name}</option>
+                        <option key={g.title + c.name} value={`${g.title} — ${c.name}`}>{g.title} — {c.name}</option>
                       )))}
                     </select>
                   </div>
@@ -2689,28 +2765,79 @@ function Contact() {
     </section>
   );
 }
-function Input({ label, ...p }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <div>
-      <label className="block text-sm font-semibold text-slate-800 mb-1.5">{label}</label>
-      <input {...p} className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all" />
-    </div>
-  );
-}
-function InfoLine({ icon: I, label, value }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string }) {
-  return (
-    <div className="flex gap-3">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/15 text-navy-deep"><I className="w-5 h-5" /></div>
-      <div>
-        <div className="text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
-        <div className="text-sm text-navy-deep font-medium leading-relaxed">{value}</div>
-      </div>
-    </div>
-  );
-}
 
 /* ---------- footer ---------- */
 function Footer() {
+  const quickLinks = NAV.map((n) => ({
+    label: n.label,
+    href: n.href,
+    onClick: () => {
+      const el = document.querySelector(n.href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  }));
+
+  const popularCourses = [
+    {
+      label: "Java Full Stack",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 1 } }));
+      },
+    },
+    {
+      label: "MERN Stack",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 1 } }));
+      },
+    },
+    {
+      label: "AI & ML",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 2 } }));
+      },
+    },
+    {
+      label: "AWS Cloud",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 4 } }));
+      },
+    },
+    {
+      label: "Cyber Security",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 3 } }));
+      },
+    },
+    {
+      label: "DevOps",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 4 } }));
+      },
+    },
+    {
+      label: "Kids Course",
+      href: "#courses",
+      onClick: () => {
+        document.querySelector("#courses")?.scrollIntoView({ behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent("selectCourseCategory", { detail: { index: 9 } }));
+      },
+    },
+  ];
+
   return (
     <footer className="pt-10 pb-8 text-white" style={{ background: "var(--gradient-navy)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -2728,8 +2855,8 @@ function Footer() {
             </p>
           </div>
 
-          <FooterCol title="Quick Links" links={NAV.map((n) => n.label)} />
-          <FooterCol title="Popular Courses" links={["Java Full Stack", "MERN Stack", "AI & ML", "AWS Cloud", "Cyber Security", "DevOps"]} />
+          <FooterCol title="Quick Links" links={quickLinks} />
+          <FooterCol title="Popular Courses" links={popularCourses} />
 
           <div>
             <div className="font-display font-bold text-gold-glow mb-4">Contact Us</div>
@@ -2763,18 +2890,41 @@ function Footer() {
     </footer>
   );
 }
-function FooterCol({ title, links }: { title: string; links: string[] }) {
+
+type FooterLinkItem = string | { label: string; href?: string; onClick?: () => void };
+
+function FooterCol({ title, links }: { title: string; links: FooterLinkItem[] }) {
   return (
     <div>
       <div className="font-display font-bold text-gold-glow mb-4">{title}</div>
       <ul className="space-y-2 text-sm text-white/75">
-        {links.map((l) => <li key={l}><a href="#" className="hover:text-gold transition-colors">{l}</a></li>)}
+        {links.map((item, idx) => {
+          const label = typeof item === "string" ? item : item.label;
+          const href = typeof item === "string" ? "#" : item.href || "#";
+          const onClick = typeof item === "string" ? undefined : item.onClick;
+
+          return (
+            <li key={label + idx}>
+              <a
+                href={href}
+                onClick={(e) => {
+                  if (onClick) {
+                    e.preventDefault();
+                    onClick();
+                  }
+                }}
+                className="hover:text-gold transition-colors cursor-pointer"
+              >
+                {label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 }
 
-/* ---------- page ---------- */
 function Home() {
   return (
     <div className="min-h-screen bg-background">
