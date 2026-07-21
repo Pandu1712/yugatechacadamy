@@ -61,7 +61,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 const NAV = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Courses", href: "#courses" },
+  { label: "IT Courses", href: "#courses" },
   { label: "Kids Course", href: "/kids-course", isRoute: true },
   { label: "Services", href: "#services" },
   { label: "Placements", href: "#placements" },
@@ -82,7 +82,7 @@ function Navbar() {
 
     // Scroll spy to highlight active section on scroll
     const sectionIds = ["home", "about", "courses", "services", "placements", "testimonials"];
-    
+
     const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -138,9 +138,9 @@ function Navbar() {
                   className={`relative py-2 text-sm font-semibold transition-colors tracking-wide ${isActive ? "text-[#EAB308]" : "text-white/80 hover:text-white"}`}>
                   {n.label}
                   {isActive && (
-                    <motion.span 
+                    <motion.span
                       layoutId="activeTabUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#EAB308] rounded-full" 
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#EAB308] rounded-full"
                     />
                   )}
                 </a>
@@ -179,11 +179,11 @@ function Navbar() {
                   );
                 }
                 return (
-                  <a key={n.href} href={n.href} 
+                  <a key={n.href} href={n.href}
                     onClick={() => {
                       setActiveHash(n.href);
                       setOpen(false);
-                    }} 
+                    }}
                     className={`px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${isActive ? "text-[#EAB308] bg-slate-800/60" : "text-white/85 hover:text-white hover:bg-slate-800/30"}`}>
                     {n.label}
                   </a>
@@ -204,7 +204,7 @@ function Navbar() {
 /* ---------- hero ---------- */
 function Hero() {
   return (
-    <section id="home" className="relative bg-white pt-24 lg:h-[700px] overflow-hidden flex flex-col justify-between">
+    <section id="home" className="relative bg-white pt-24 lg:h-[700px] overflow-hidden flex flex-col justify-between scroll-mt-24">
       {/* Responsive SVG ClipPath definition for the curved image cutout */}
       <svg className="absolute w-0 h-0" width="0" height="0">
         <defs>
@@ -220,12 +220,12 @@ function Hero() {
       <div className="flex-grow flex items-start lg:items-start relative z-10 lg:h-[474px] lg:pt-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-0 pb-12 lg:py-0">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Left Column (Text & CTAs) */}
             <div className="lg:col-span-6 flex flex-col justify-start text-slate-900 z-10 pr-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="inline-flex items-center gap-2 rounded-full border border-[#EAB308]/60 bg-[#FEF3C7] px-4 py-1.5 text-xs font-bold text-[#B45309] mb-3 w-fit shadow-sm"
               >
@@ -233,7 +233,7 @@ function Hero() {
                 <span className="tracking-wider uppercase">LEARN • BUILD • EXCEL</span>
               </motion.div>
 
-              <motion.h1 
+              <motion.h1
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
@@ -249,25 +249,25 @@ function Hero() {
               </motion.h1>
 
               {/* Gold horizontal line divider */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="w-28 h-1.5 bg-[#EAB308] mt-4 rounded-full origin-left"
               />
 
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }} 
-                animate={{ opacity: 1, y: 0 }} 
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="mt-4 text-base text-slate-600 max-w-xl leading-relaxed font-medium"
               >
                 Empowering students with industry-ready IT skills through expert training, live projects, internships, certifications, and placements.
               </motion.p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }} 
-                animate={{ opacity: 1, y: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mt-5 flex flex-wrap gap-4"
               >
@@ -277,9 +277,9 @@ function Hero() {
               </motion.div>
 
               {/* Statistics Row placed below buttons */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }} 
-                animate={{ opacity: 1, y: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="mt-8 py-5 border-y border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-2"
               >
@@ -349,9 +349,9 @@ function Hero() {
 
             {/* Right Column Spacer (Desktop is absolute, Mobile renders image directly here) */}
             <div className="lg:col-span-6 lg:hidden">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }} 
-                animate={{ opacity: 1, scale: 1 }} 
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#EAB308]/50"
               >
@@ -379,9 +379,9 @@ function Hero() {
           </svg>
 
           {/* Masked Student Image with object-bottom to preserve students faces */}
-          <img 
-            src={heroImg} 
-            alt="Students learning IT skills" 
+          <img
+            src={heroImg}
+            alt="Students learning IT skills"
             className="w-full h-full object-cover object-bottom"
             style={{ clipPath: "url(#hero-curve)" }}
           />
@@ -392,9 +392,9 @@ function Hero() {
 
       {/* Overlapping Feature Cards for Desktop (placed absolute over padding bottom of section) */}
       <div className="absolute bottom-[150px] left-[50%] right-4 z-20 hidden lg:grid grid-cols-4 gap-3">
-        
+
         {/* Card 1: Expert Trainers */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -411,7 +411,7 @@ function Hero() {
         </motion.div>
 
         {/* Card 2: Live Projects */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -428,7 +428,7 @@ function Hero() {
         </motion.div>
 
         {/* Card 3: Certifications */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -445,7 +445,7 @@ function Hero() {
         </motion.div>
 
         {/* Card 4: 100% Placement */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -466,7 +466,7 @@ function Hero() {
       {/* Mobile Feature Cards (Visible only on mobile/tablet viewports) */}
       <div className="mt-6 lg:hidden w-full px-4 sm:px-6 z-10 mb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          
+
           {/* Card 1: Expert Trainers */}
           <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-150 flex items-start gap-4">
             <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center flex-shrink-0">
@@ -609,12 +609,12 @@ function TechSection() {
   return (
     <section className="py-10 bg-[#FAF9F6] border-t border-slate-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle 
+        <SectionTitle
           eyebrow="Tech Stack"
           title="Trusted Technologies We Teach"
           sub="Master the most in-demand tools and frameworks used by tech leaders globally."
         />
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center mt-6">
           {TECHS.map((t, i) => {
             const Icon = t.icon;
@@ -624,7 +624,7 @@ function TechSection() {
                   <div className="tech-card-uiverse-border"></div>
                   <div className="tech-card-uiverse-content">
                     <div className="tech-card-uiverse-logo-wrapper">
-                                            <div className="tech-card-uiverse-logo1 flex items-center justify-center">
+                      <div className="tech-card-uiverse-logo1 flex items-center justify-center">
                         {BRAND_LOGOS[t.name] ? (
                           <svg viewBox="0 0 24 24" className="w-7 h-7 flex-shrink-0" style={{ fill: BRAND_LOGOS[t.name].color }}>
                             <path d={BRAND_LOGOS[t.name].path} />
@@ -689,10 +689,10 @@ function AnimatedTitle({ title, className = "", light = false }: { title: string
       className={`font-display text-3xl sm:text-4xl lg:text-5xl font-black flex flex-wrap justify-center gap-x-[0.22em] leading-tight ${light ? "text-white" : "text-[#020617]"} ${className}`}
     >
       {words.map((w, i) => {
-        const isHighlighted = i === words.length - 1 || 
-                             (w.toLowerCase() === "mission" && words[i - 1]?.toLowerCase() === "our") ||
-                             (w.toLowerCase() === "leaders" && words[i - 1]?.toLowerCase() === "it") ||
-                             (w.toLowerCase() === "say" && words[i - 1]?.toLowerCase() === "students");
+        const isHighlighted = i === words.length - 1 ||
+          (w.toLowerCase() === "mission" && words[i - 1]?.toLowerCase() === "our") ||
+          (w.toLowerCase() === "leaders" && words[i - 1]?.toLowerCase() === "it") ||
+          (w.toLowerCase() === "say" && words[i - 1]?.toLowerCase() === "students");
         return (
           <motion.span
             key={i}
@@ -733,9 +733,9 @@ function SectionTitle({ eyebrow, title, sub, light = false }: { eyebrow?: string
 /* ---------- about ---------- */
 function About() {
   return (
-    <section id="about" className="py-10 bg-white border-t border-slate-100">
+    <section id="about" className="py-10 bg-white border-t border-slate-100 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Part 1: Text & Image Grid */}
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Text */}
@@ -757,10 +757,10 @@ function About() {
           <div className="lg:col-span-6 mt-8 lg:mt-0">
             <Reveal className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-gold/15 to-navy/5 blur-2xl pointer-events-none" />
-              <img 
-                src={aboutImg} 
-                alt="Students learning at YUGA Tech Academy" 
-                className="relative rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] w-full h-auto object-cover border border-slate-100" 
+              <img
+                src={aboutImg}
+                alt="Students learning at YUGA Tech Academy"
+                className="relative rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] w-full h-auto object-cover border border-slate-100"
               />
               {/* Overlapping Mission Card */}
               <div className="absolute -bottom-8 left-4 right-4 sm:left-8 sm:right-8 bg-[#020617] rounded-2xl p-5 shadow-2xl flex items-start gap-4 border border-slate-800 z-20">
@@ -872,89 +872,89 @@ const ALL_COURSES_LIST = [
   { name: "JavaScript", desc: "Learn JavaScript for interactive web development.", dur: "2 Months", level: "Beginner", bullets: ["ES6+ Features", "DOM Manipulation", "Certificate Included"], icon: "JS" },
 ];
 
-const COURSE_GROUPS: { 
-  title: string; 
-  icon: React.ComponentType<{ className?: string }>; 
-  courses: { name: string; desc: string; dur: string; level: string; bullets?: string[] }[] 
+const COURSE_GROUPS: {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  courses: { name: string; desc: string; dur: string; level: string; bullets?: string[] }[]
 }[] = [
-  {
-    title: "Programming Languages", icon: Terminal, courses: [
-      { name: "C Programming", desc: "Master fundamentals of programming with C.", dur: "2 Months", level: "Beginner", bullets: ["Basics to Advanced", "Hands-on Labs", "Certificate Included"] },
-      { name: "C++", desc: "OOP concepts & problem solving using C++.", dur: "2.5 Months", level: "Beginner", bullets: ["OOP Principles", "Project Based Learning", "Certificate Included"] },
-      { name: "Core Python", desc: "Python essentials & scripting for everyone.", dur: "2 Months", level: "Beginner", bullets: ["Python Basics", "Real-world Examples", "Certificate Included"] },
-      { name: "Advanced Python", desc: "Frameworks, APIs & automation.", dur: "3 Months", level: "Intermediate", bullets: ["Django & Flask", "Automation Scripts", "Certificate Included"] },
-      { name: "Core Java", desc: "OOP with Java from scratch.", dur: "3 Months", level: "Beginner", bullets: ["OOP Concepts", "Exception Handling", "Certificate Included"] },
-      { name: "Advanced Java", desc: "JDBC, Servlets, JSP & JPA.", dur: "3 Months", level: "Intermediate", bullets: ["Web Services", "Database Integration", "Certificate Included"] },
-    ]
-  },
-  {
-    title: "Full Stack Development", icon: Layers, courses: [
-      { name: "Java Full Stack", desc: "Spring Boot + React end-to-end.", dur: "6 Months", level: "Advanced", bullets: ["Spring Boot Framework", "React UI Development", "Full Stack Project"] },
-      { name: "Python Full Stack", desc: "Django/Flask + React apps.", dur: "6 Months", level: "Advanced", bullets: ["Django REST Framework", "React Integration", "End-to-End Hosting"] },
-      { name: "MERN Stack", desc: "Mongo, Express, React, Node.", dur: "5 Months", level: "Advanced", bullets: ["Node.js & Express APIs", "React SPAs", "MongoDB Databases"] },
-    ]
-  },
-  {
-    title: "AI & Data Science", icon: Brain, courses: [
-      { name: "Artificial Intelligence", desc: "Foundations of AI & neural nets.", dur: "4 Months", level: "Intermediate", bullets: ["Neural Networks", "Neural NLP", "TensorFlow & PyTorch"] },
-      { name: "Machine Learning", desc: "Supervised & unsupervised models.", dur: "3 Months", level: "Intermediate", bullets: ["Regression & Classifiers", "Model Evaluation", "Real-world datasets"] },
-      { name: "Generative AI", desc: "LLMs, RAG and Agents.", dur: "2.5 Months", level: "Advanced", bullets: ["LLM Prompting & Tuning", "RAG architectures", "AI Agents & LangChain"] },
-      { name: "Data Science", desc: "End-to-end DS pipelines.", dur: "4 Months", level: "Intermediate", bullets: ["Data Wrangling", "Statistical Analysis", "Data Visualization"] },
-    ]
-  },
-  {
-    title: "Cyber Security", icon: Shield, courses: [
-      { name: "Ethical Hacking", desc: "Offensive security techniques.", dur: "3 Months", level: "Intermediate", bullets: ["Penetration Testing", "Metasploit & Nmap", "CEH curriculum alignment"] },
-      { name: "SOC Analyst", desc: "Blue-team monitoring & response.", dur: "2.5 Months", level: "Intermediate", bullets: ["SIEM tools (Splunk)", "Log analysis", "Threat intelligence"] },
-      { name: "Network Security", desc: "Firewalls, VPNs, protocols.", dur: "2.5 Months", level: "Intermediate", bullets: ["Firewall Configuration", "Protocol Analysis", "Network Hardening"] },
-      { name: "VAPT", desc: "Vulnerability assessment & pentest.", dur: "3 Months", level: "Advanced", bullets: ["Vulnerability Scans", "Exploit development", "Report writing"] },
-    ]
-  },
-  {
-    title: "Cloud & DevOps", icon: Cloud, courses: [
-      { name: "AWS", desc: "Cloud architect certified path.", dur: "2.5 Months", level: "Intermediate", bullets: ["EC2, S3, RDS & VPC", "IAM Security Policies", "Solution Architect Prep"] },
-      { name: "Microsoft Azure", desc: "Azure fundamentals to admin.", dur: "2.5 Months", level: "Intermediate", bullets: ["Azure Portal & CLI", "VMs & App Services", "AZ-104 Exam prep"] },
-      { name: "Google Cloud", desc: "GCP core services & deploy.", dur: "2.5 Months", level: "Intermediate", bullets: ["GCP Compute Engine", "BigQuery & Cloud Storage", "GCP cloud console"] },
-      { name: "DevOps", desc: "CI/CD, Docker, K8s, Jenkins.", dur: "3 Months", level: "Advanced", bullets: ["Docker Containers", "Kubernetes Orchestration", "CI/CD Pipeline Building"] },
-    ]
-  },
-  {
-    title: "Software Testing", icon: TestTube2, courses: [
-      { name: "Manual Testing", desc: "SDLC, STLC & test cases.", dur: "1.5 Months", level: "Beginner", bullets: ["Black Box Testing", "Bug Tracking (Jira)", "Test Case Design"] },
-      { name: "Selenium Automation", desc: "Automate web with Java/Python.", dur: "2.5 Months", level: "Intermediate", bullets: ["WebDriver API", "TestNG Framework", "Page Object Model"] },
-    ]
-  },
-  {
-    title: "Web & Mobile", icon: Smartphone, courses: [
-      { name: "Front-End Development", desc: "HTML, CSS, JS, React.", dur: "3 Months", level: "Beginner", bullets: ["Responsive UI design", "JavaScript & ES6", "React components & state"] },
-      { name: "Android Development", desc: "Kotlin native apps.", dur: "3 Months", level: "Intermediate", bullets: ["Kotlin language", "Jetpack Compose", "Play Store publishing"] },
-      { name: "Flutter Development", desc: "Cross-platform Dart apps.", dur: "3 Months", level: "Intermediate", bullets: ["Dart programming", "Widget trees & state", "iOS/Android single codebase"] },
-    ]
-  },
-  {
-    title: "Databases", icon: Database, courses: [
-      { name: "SQL", desc: "Queries, joins, window fns.", dur: "1.5 Months", level: "Beginner", bullets: ["Basic DML/DDL queries", "Joins & Subqueries", "Window functions"] },
-      { name: "MySQL", desc: "Design & admin.", dur: "1.5 Months", level: "Beginner", bullets: ["Database Schema design", "Triggers & Stored procs", "User Administration"] },
-      { name: "PostgreSQL", desc: "Advanced RDBMS features.", dur: "2 Months", level: "Intermediate", bullets: ["JSONB & NoSQL features", "Performance tuning", "PL/pgSQL scripting"] },
-      { name: "MongoDB", desc: "NoSQL document DB.", dur: "1.5 Months", level: "Intermediate", bullets: ["Document Store model", "Aggregation framework", "Mongoose ODM integration"] },
-    ]
-  },
-  {
-    title: "Accounting & Office", icon: Calculator, courses: [
-      { name: "Tally Prime with GST", desc: "Full accounting + GST filing.", dur: "2 Months", level: "Beginner", bullets: ["Voucher entries", "GST & e-Way billing", "Tax filings (GSTR)"] },
-      { name: "MS Office", desc: "Word, Excel, PowerPoint mastery.", dur: "1 Month", level: "Beginner", bullets: ["Excel pivot tables/formulas", "Word formatting", "PowerPoint deck design"] },
-    ]
-  },
-  {
-    title: "Kids Coding", icon: Baby, courses: [
-      { name: "Scratch", desc: "Visual programming for kids.", dur: "1.5 Months", level: "Kids", bullets: ["Block-based logic", "Sprite animations", "Simple game design"] },
-      { name: "Block Coding", desc: "Logic through blocks.", dur: "1.5 Months", level: "Kids", bullets: ["Conditionals & Loops", "Computational logic", "App Inventor basic apps"] },
-      { name: "Python for Kids", desc: "First real language for kids.", dur: "2 Months", level: "Kids", bullets: ["Turtle graphics", "Python basic syntax", "Text adventure games"] },
-      { name: "AI for Kids", desc: "Fun intro to AI concepts.", dur: "1.5 Months", level: "Kids", bullets: ["Image classifiers", "Speech recognition games", "Ethics of AI"] },
-      { name: "Robotics", desc: "Hands-on robots & sensors.", dur: "2.5 Months", level: "Kids", bullets: ["Arduino/Micro:bit basics", "Sensor integration", "Robot path traversal"] },
-    ]
-  },
-];
+    {
+      title: "Programming Languages", icon: Terminal, courses: [
+        { name: "C Programming", desc: "Master fundamentals of programming with C.", dur: "2 Months", level: "Beginner", bullets: ["Basics to Advanced", "Hands-on Labs", "Certificate Included"] },
+        { name: "C++", desc: "OOP concepts & problem solving using C++.", dur: "2.5 Months", level: "Beginner", bullets: ["OOP Principles", "Project Based Learning", "Certificate Included"] },
+        { name: "Core Python", desc: "Python essentials & scripting for everyone.", dur: "2 Months", level: "Beginner", bullets: ["Python Basics", "Real-world Examples", "Certificate Included"] },
+        { name: "Advanced Python", desc: "Frameworks, APIs & automation.", dur: "3 Months", level: "Intermediate", bullets: ["Django & Flask", "Automation Scripts", "Certificate Included"] },
+        { name: "Core Java", desc: "OOP with Java from scratch.", dur: "3 Months", level: "Beginner", bullets: ["OOP Concepts", "Exception Handling", "Certificate Included"] },
+        { name: "Advanced Java", desc: "JDBC, Servlets, JSP & JPA.", dur: "3 Months", level: "Intermediate", bullets: ["Web Services", "Database Integration", "Certificate Included"] },
+      ]
+    },
+    {
+      title: "Full Stack Development", icon: Layers, courses: [
+        { name: "Java Full Stack", desc: "Spring Boot + React end-to-end.", dur: "6 Months", level: "Advanced", bullets: ["Spring Boot Framework", "React UI Development", "Full Stack Project"] },
+        { name: "Python Full Stack", desc: "Django/Flask + React apps.", dur: "6 Months", level: "Advanced", bullets: ["Django REST Framework", "React Integration", "End-to-End Hosting"] },
+        { name: "MERN Stack", desc: "Mongo, Express, React, Node.", dur: "5 Months", level: "Advanced", bullets: ["Node.js & Express APIs", "React SPAs", "MongoDB Databases"] },
+      ]
+    },
+    {
+      title: "AI & Data Science", icon: Brain, courses: [
+        { name: "Artificial Intelligence", desc: "Foundations of AI & neural nets.", dur: "4 Months", level: "Intermediate", bullets: ["Neural Networks", "Neural NLP", "TensorFlow & PyTorch"] },
+        { name: "Machine Learning", desc: "Supervised & unsupervised models.", dur: "3 Months", level: "Intermediate", bullets: ["Regression & Classifiers", "Model Evaluation", "Real-world datasets"] },
+        { name: "Generative AI", desc: "LLMs, RAG and Agents.", dur: "2.5 Months", level: "Advanced", bullets: ["LLM Prompting & Tuning", "RAG architectures", "AI Agents & LangChain"] },
+        { name: "Data Science", desc: "End-to-end DS pipelines.", dur: "4 Months", level: "Intermediate", bullets: ["Data Wrangling", "Statistical Analysis", "Data Visualization"] },
+      ]
+    },
+    {
+      title: "Cyber Security", icon: Shield, courses: [
+        { name: "Ethical Hacking", desc: "Offensive security techniques.", dur: "3 Months", level: "Intermediate", bullets: ["Penetration Testing", "Metasploit & Nmap", "CEH curriculum alignment"] },
+        { name: "SOC Analyst", desc: "Blue-team monitoring & response.", dur: "2.5 Months", level: "Intermediate", bullets: ["SIEM tools (Splunk)", "Log analysis", "Threat intelligence"] },
+        { name: "Network Security", desc: "Firewalls, VPNs, protocols.", dur: "2.5 Months", level: "Intermediate", bullets: ["Firewall Configuration", "Protocol Analysis", "Network Hardening"] },
+        { name: "VAPT", desc: "Vulnerability assessment & pentest.", dur: "3 Months", level: "Advanced", bullets: ["Vulnerability Scans", "Exploit development", "Report writing"] },
+      ]
+    },
+    {
+      title: "Cloud & DevOps", icon: Cloud, courses: [
+        { name: "AWS", desc: "Cloud architect certified path.", dur: "2.5 Months", level: "Intermediate", bullets: ["EC2, S3, RDS & VPC", "IAM Security Policies", "Solution Architect Prep"] },
+        { name: "Microsoft Azure", desc: "Azure fundamentals to admin.", dur: "2.5 Months", level: "Intermediate", bullets: ["Azure Portal & CLI", "VMs & App Services", "AZ-104 Exam prep"] },
+        { name: "Google Cloud", desc: "GCP core services & deploy.", dur: "2.5 Months", level: "Intermediate", bullets: ["GCP Compute Engine", "BigQuery & Cloud Storage", "GCP cloud console"] },
+        { name: "DevOps", desc: "CI/CD, Docker, K8s, Jenkins.", dur: "3 Months", level: "Advanced", bullets: ["Docker Containers", "Kubernetes Orchestration", "CI/CD Pipeline Building"] },
+      ]
+    },
+    {
+      title: "Software Testing", icon: TestTube2, courses: [
+        { name: "Manual Testing", desc: "SDLC, STLC & test cases.", dur: "1.5 Months", level: "Beginner", bullets: ["Black Box Testing", "Bug Tracking (Jira)", "Test Case Design"] },
+        { name: "Selenium Automation", desc: "Automate web with Java/Python.", dur: "2.5 Months", level: "Intermediate", bullets: ["WebDriver API", "TestNG Framework", "Page Object Model"] },
+      ]
+    },
+    {
+      title: "Web & Mobile", icon: Smartphone, courses: [
+        { name: "Front-End Development", desc: "HTML, CSS, JS, React.", dur: "3 Months", level: "Beginner", bullets: ["Responsive UI design", "JavaScript & ES6", "React components & state"] },
+        { name: "Android Development", desc: "Kotlin native apps.", dur: "3 Months", level: "Intermediate", bullets: ["Kotlin language", "Jetpack Compose", "Play Store publishing"] },
+        { name: "Flutter Development", desc: "Cross-platform Dart apps.", dur: "3 Months", level: "Intermediate", bullets: ["Dart programming", "Widget trees & state", "iOS/Android single codebase"] },
+      ]
+    },
+    {
+      title: "Databases", icon: Database, courses: [
+        { name: "SQL", desc: "Queries, joins, window fns.", dur: "1.5 Months", level: "Beginner", bullets: ["Basic DML/DDL queries", "Joins & Subqueries", "Window functions"] },
+        { name: "MySQL", desc: "Design & admin.", dur: "1.5 Months", level: "Beginner", bullets: ["Database Schema design", "Triggers & Stored procs", "User Administration"] },
+        { name: "PostgreSQL", desc: "Advanced RDBMS features.", dur: "2 Months", level: "Intermediate", bullets: ["JSONB & NoSQL features", "Performance tuning", "PL/pgSQL scripting"] },
+        { name: "MongoDB", desc: "NoSQL document DB.", dur: "1.5 Months", level: "Intermediate", bullets: ["Document Store model", "Aggregation framework", "Mongoose ODM integration"] },
+      ]
+    },
+    {
+      title: "Accounting & Office", icon: Calculator, courses: [
+        { name: "Tally Prime with GST", desc: "Full accounting + GST filing.", dur: "2 Months", level: "Beginner", bullets: ["Voucher entries", "GST & e-Way billing", "Tax filings (GSTR)"] },
+        { name: "MS Office", desc: "Word, Excel, PowerPoint mastery.", dur: "1 Month", level: "Beginner", bullets: ["Excel pivot tables/formulas", "Word formatting", "PowerPoint deck design"] },
+      ]
+    },
+    {
+      title: "Kids Coding", icon: Baby, courses: [
+        { name: "Scratch", desc: "Visual programming for kids.", dur: "1.5 Months", level: "Kids", bullets: ["Block-based logic", "Sprite animations", "Simple game design"] },
+        { name: "Block Coding", desc: "Logic through blocks.", dur: "1.5 Months", level: "Kids", bullets: ["Conditionals & Loops", "Computational logic", "App Inventor basic apps"] },
+        { name: "Python for Kids", desc: "First real language for kids.", dur: "2 Months", level: "Kids", bullets: ["Turtle graphics", "Python basic syntax", "Text adventure games"] },
+        { name: "AI for Kids", desc: "Fun intro to AI concepts.", dur: "1.5 Months", level: "Kids", bullets: ["Image classifiers", "Speech recognition games", "Ethics of AI"] },
+        { name: "Robotics", desc: "Hands-on robots & sensors.", dur: "2.5 Months", level: "Kids", bullets: ["Arduino/Micro:bit basics", "Sensor integration", "Robot path traversal"] },
+      ]
+    },
+  ];
 
 const getCourseBullets = (course: any) => {
   if (course.bullets) return course.bullets;
@@ -964,7 +964,7 @@ const getCourseBullets = (course: any) => {
 
 const getCourseTheme = (courseName: string) => {
   const name = courseName.toLowerCase();
-  
+
   if (name === "c programming") {
     return {
       color: "blue",
@@ -1131,7 +1131,7 @@ const getCourseTheme = (courseName: string) => {
     cardBorder: "border-slate-100 hover:border-slate-300",
     logoBorder: "border-slate-100"
   };
-};const getPremiumLevelBadge = (level: string, badgeClass: string) => {
+}; const getPremiumLevelBadge = (level: string, badgeClass: string) => {
   return (
     <div className={`px-3 py-1 rounded-full text-[10px] font-black tracking-wide flex items-center gap-1.5 ${badgeClass}`}>
       <TrendingUp className="w-3 h-3" />
@@ -1142,11 +1142,11 @@ const getCourseTheme = (courseName: string) => {
 const getCourseIcon = (courseName: string, categoryIcon: any) => {
   const name = courseName.toLowerCase();
   const theme = getCourseTheme(courseName);
-  
+
   // Explicitly size SVGs inline and use theme border color to prevent cropping
   const wrapperClass = `w-14 h-14 rounded-2xl bg-white border ${theme.logoBorder} flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.03)] overflow-hidden`;
   const svgStyle = { width: '32px', height: '32px', flexShrink: 0 };
-  
+
   if (name === "c programming") {
     return (
       <div className={wrapperClass}>
@@ -1158,7 +1158,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       </div>
     );
   }
-  
+
   if (name === "c++") {
     return (
       <div className={wrapperClass}>
@@ -1171,7 +1171,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       </div>
     );
   }
-  
+
   if (name.includes("python")) {
     return (
       <div className={wrapperClass}>
@@ -1182,7 +1182,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       </div>
     );
   }
-  
+
   if (name.includes("java") && !name.includes("javascript")) {
     return (
       <div className={wrapperClass}>
@@ -1194,7 +1194,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       </div>
     );
   }
-  
+
   if (name.includes("javascript") || name.includes("front-end")) {
     return (
       <div className={wrapperClass}>
@@ -1294,7 +1294,7 @@ const getCourseIcon = (courseName: string, categoryIcon: any) => {
       </div>
     );
   }
-  
+
   const CatIcon = categoryIcon;
   return (
     <div className={wrapperClass}>
@@ -1317,7 +1317,7 @@ const getCourseBg = (courseName: string, categoryName: string) => {
   if (cat.includes("cloud")) return "bg-cyan-50/30 border-cyan-200/30";
   if (cat.includes("testing")) return "bg-emerald-50/30 border-emerald-200/30";
   return "bg-slate-50/40 border-slate-200/30";
-};const getLevelBadge = (level: string) => {
+}; const getLevelBadge = (level: string) => {
   const lvl = level.toLowerCase();
   if (lvl === "beginner") {
     return <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] rounded-full px-2.5 py-1 text-xs font-semibold">Beginner</span>;
@@ -1355,9 +1355,9 @@ function Courses() {
   const activeGroup = active === -1 ? { title: "All Courses", icon: Code2, courses: ALL_COURSES_LIST } : COURSE_GROUPS[active];
 
   return (
-    <section id="courses" className="py-10 bg-white border-t border-slate-100">
+    <section id="courses" className="py-10 bg-white border-t border-slate-100 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Part 1: Grid Header section */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-8">
           {/* Left: Heading and Key Features */}
@@ -1425,15 +1425,15 @@ function Courses() {
           <div className="lg:col-span-5 relative">
             <Reveal className="relative">
               <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-br from-gold/15 to-navy/5 blur-2xl pointer-events-none" />
-              
+
               {/* Curved container for the image */}
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-slate-100 w-full h-[280px] lg:h-[320px]">
-                <img 
-                  src={aboutImg} 
-                  alt="YUGA Tech Academy students learning" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={aboutImg}
+                  alt="YUGA Tech Academy students learning"
+                  className="w-full h-full object-cover"
                 />
-                
+
                 {/* Float badges on top of image */}
                 <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md border border-slate-100 flex items-center justify-center text-slate-700 z-10"><Code2 className="w-4 h-4" /></div>
                 <div className="absolute top-8 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md border border-slate-100 flex items-center justify-center text-slate-700 z-10"><TrendingUp className="w-4 h-4" /></div>
@@ -1458,29 +1458,27 @@ function Courses() {
         {/* Part 2: Interactive Tabs Bar */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6 mb-12 max-w-5xl mx-auto">
           {/* All Courses Tab */}
-          <button 
+          <button
             onClick={() => setActive(-1)}
             style={active === -1 ? { background: "var(--gradient-navy)" } : undefined}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-              active === -1 
-                ? "text-white border border-[#EAB308]/60 shadow-lg font-bold" 
+            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${active === -1
+                ? "text-white border border-[#EAB308]/60 shadow-lg font-bold"
                 : "bg-white border border-slate-200 text-navy-deep hover:border-[#EAB308]"
-            }`}
+              }`}
           >
             <Code2 className="w-4 h-4" /> All Courses
           </button>
 
           {/* Individual Category Tabs */}
           {COURSE_GROUPS.map((g, i) => (
-            <button 
-              key={g.title} 
+            <button
+              key={g.title}
               onClick={() => setActive(i)}
               style={active === i ? { background: "var(--gradient-navy)" } : undefined}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                active === i 
-                  ? "text-white border border-[#EAB308]/60 shadow-lg font-bold" 
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${active === i
+                  ? "text-white border border-[#EAB308]/60 shadow-lg font-bold"
                   : "bg-white border border-slate-200 text-navy-deep hover:border-[#EAB308]"
-              }`}
+                }`}
             >
               <g.icon className="w-4 h-4" /> {g.title}
             </button>
@@ -1493,7 +1491,7 @@ function Courses() {
             const courseIcon = getCourseIcon(c.name, activeGroup.icon);
             const courseBullets = getCourseBullets(c);
             const theme = getCourseTheme(c.name);
-            
+
             // Determine footer icon
             let FooterIcon = Code2; // Default code braces
             if (theme.icon === "rocket") FooterIcon = Rocket;
@@ -1502,7 +1500,7 @@ function Courses() {
 
             return (
               <Reveal key={c.name} delay={i * 0.03}>
-                <div 
+                <div
                   className={`group relative bg-white border rounded-[28px] p-6 pb-0 flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:-translate-y-1 h-[350px] overflow-hidden ${theme.cardBorder}`}
                   style={{ backgroundImage: theme.gradient, backgroundRepeat: "no-repeat" }}
                 >
@@ -1511,7 +1509,7 @@ function Courses() {
                     <div className="flex items-start justify-between">
                       {/* Brand Logo inside a white shadow-box exactly like Image 1 */}
                       {courseIcon}
-                      
+
                       {/* Level Badge */}
                       <div className="flex-shrink-0">
                         {getPremiumLevelBadge(c.level, theme.badgeClass)}
@@ -1544,14 +1542,14 @@ function Courses() {
                       className="mt-3 w-full py-2 rounded-xl bg-[#25D366] text-white text-[10px] font-black uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm hover:brightness-105 active:translate-y-[0.5px] border-0"
                     >
                       <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z"/>
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z" />
                       </svg>
                       Enquiry Now
                     </button>
                   </div>
 
                   {/* Footer Banner: Full Width colored section matching Image 1 */}
-                  <button 
+                  <button
                     onClick={(e) => {
                       e.preventDefault();
                       setEnquiryCourse(c.name);
@@ -1576,7 +1574,7 @@ function Courses() {
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
           <div className="bg-white rounded-3xl p-6 max-w-md w-full border border-slate-100 shadow-2xl relative text-left transition-all">
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setEnquiryCourse(null)}
               className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition p-1.5 rounded-full hover:bg-slate-100"
               aria-label="Close modal"
@@ -1585,23 +1583,23 @@ function Courses() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            
+
             <h3 className="font-display font-black text-slate-900 text-lg leading-tight">
               Enquiry for <span className="text-[#D97706]">{enquiryCourse}</span>
             </h3>
             <p className="text-[11px] text-slate-500 font-semibold mt-1">
               Please enter your details below to start the enquiry on WhatsApp.
             </p>
-            
-            <form 
+
+            <form
               onSubmit={(e) => {
                 e.preventDefault();
                 const text = `*New Course Inquiry*\n\n` +
-                             `*Course:* ${enquiryCourse}\n` +
-                             `*Name:* ${studentName}\n` +
-                             `*Phone:* ${studentPhone}\n` +
-                             `*Education:* ${studentEdu}\n` +
-                             (studentEmail ? `*Email:* ${studentEmail}\n` : "");
+                  `*Course:* ${enquiryCourse}\n` +
+                  `*Name:* ${studentName}\n` +
+                  `*Phone:* ${studentPhone}\n` +
+                  `*Education:* ${studentEdu}\n` +
+                  (studentEmail ? `*Email:* ${studentEmail}\n` : "");
                 const waUrl = `https://api.whatsapp.com/send?phone=917989033585&text=${encodeURIComponent(text)}`;
                 window.open(waUrl, "_blank");
                 setEnquiryCourse(null);
@@ -1609,27 +1607,27 @@ function Courses() {
                 setStudentPhone("");
                 setStudentEmail("");
                 setStudentEdu("");
-              }} 
+              }}
               className="mt-5 space-y-4"
             >
               <div>
                 <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Your Name</label>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="Enter your name" 
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter your name"
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Phone Number</label>
-                <input 
-                  type="tel" 
-                  required 
-                  placeholder="+91 " 
+                <input
+                  type="tel"
+                  required
+                  placeholder="+91 "
                   value={studentPhone}
                   onChange={(e) => setStudentPhone(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
@@ -1638,10 +1636,10 @@ function Courses() {
 
               <div>
                 <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Education / Qualification</label>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="e.g. B.Tech, MCA, Degree" 
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. B.Tech, MCA, Degree"
                   value={studentEdu}
                   onChange={(e) => setStudentEdu(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
@@ -1650,21 +1648,21 @@ function Courses() {
 
               <div>
                 <label className="block text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">Email Address (Optional)</label>
-                <input 
-                  type="email" 
-                  placeholder="yourname@gmail.com" 
+                <input
+                  type="email"
+                  placeholder="yourname@gmail.com"
                   value={studentEmail}
                   onChange={(e) => setStudentEmail(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
                 />
               </div>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm bg-[#25D366] hover:brightness-110 shadow transition active:translate-y-[1px] mt-2"
               >
                 <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z"/>
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.623-1.01-5.092-2.855-6.941C16.638 2.016 14.17 1 11.547 1 6.11 1 1.685 5.373 1.682 10.801c0 1.673.447 3.3 1.295 4.757l-.272.996 1.056-.39 2.886 1.054zm12.316-5.733c-.332-.165-1.962-.968-2.267-1.08-.303-.108-.522-.162-.741.165-.218.327-.844 1.072-1.036 1.293-.19.22-.382.247-.714.082-2.965-1.478-4.03-2.061-5.747-5.012-.22-.378.22-.35.63-.76.368-.37.478-.51.714-.99.24-.48.12-.907-.06-1.235-.18-.328-.741-1.815-1.014-2.478-.266-.64-.537-.55-.741-.56l-.63-.008c-.218 0-.573.082-.873.41-.3.328-1.147 1.12-1.147 2.73 0 1.611 1.173 3.167 1.336 3.386.163.22 2.308 3.522 5.59 4.945 2.723 1.18 3.278.94 4.453.83.1.002.327-.082.573-.247.247-.165.41-.41.492-.686.082-.275.082-.51.054-.56-.027-.05-.11-.08-.443-.245z" />
                 </svg>
                 Send Enquiry via WhatsApp
               </button>
@@ -1678,44 +1676,44 @@ function Courses() {
 
 /* ---------- services ---------- */
 const SERVICES = [
-  { 
-    title: "Classroom Training", 
-    icon: GraduationCap, 
+  {
+    title: "Classroom Training",
+    icon: GraduationCap,
     desc: "Immersive in-person sessions at our Visakhapatnam campus with modern infrastructure.",
     bgClass: "bg-blue-50 text-blue-500",
     iconColor: "text-blue-600 font-semibold"
   },
-  { 
-    title: "Online Live Classes", 
-    icon: MonitorPlay, 
+  {
+    title: "Online Live Classes",
+    icon: MonitorPlay,
     desc: "Interactive live batches with recordings, doubt support & flexible learning.",
     bgClass: "bg-emerald-50 text-emerald-500",
     iconColor: "text-emerald-600 font-semibold"
   },
-  { 
-    title: "Corporate Training", 
-    icon: Building2, 
+  {
+    title: "Corporate Training",
+    icon: Building2,
     desc: "Custom upskilling programs designed for teams and organizations.",
     bgClass: "bg-purple-50 text-purple-500",
     iconColor: "text-purple-600 font-semibold"
   },
-  { 
-    title: "Internships", 
-    icon: Briefcase, 
+  {
+    title: "Internships",
+    icon: Briefcase,
     desc: "Work on real-time projects and gain hands-on industry experience.",
     bgClass: "bg-amber-50 text-amber-500",
     iconColor: "text-amber-600 font-semibold"
   },
-  { 
-    title: "Placement Assistance", 
-    icon: HeartHandshake, 
+  {
+    title: "Placement Assistance",
+    icon: HeartHandshake,
     desc: "Resume building, mock interviews, aptitude training & job opportunities.",
     bgClass: "bg-rose-50 text-rose-500",
     iconColor: "text-rose-600 font-semibold"
   },
-  { 
-    title: "Career Guidance", 
-    icon: Target, 
+  {
+    title: "Career Guidance",
+    icon: Target,
     desc: "One-on-one mentorship to help you choose the right career path.",
     bgClass: "bg-cyan-50 text-cyan-500",
     iconColor: "text-cyan-600 font-semibold"
@@ -1724,9 +1722,9 @@ const SERVICES = [
 
 function Services() {
   return (
-    <section id="services" className="py-10 bg-white border-t border-slate-100">
+    <section id="services" className="py-10 bg-white border-t border-slate-100 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Part 1: Grid Header section */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-8">
           {/* Left: Heading and Key Features */}
@@ -1795,15 +1793,15 @@ function Services() {
           <div className="lg:col-span-5 relative">
             <Reveal className="relative">
               <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-br from-gold/15 to-navy/5 blur-2xl pointer-events-none" />
-              
+
               {/* Curved container for the image */}
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-slate-100 w-full h-[280px] lg:h-[320px]">
-                <img 
-                  src={aboutImg} 
-                  alt="YUGA Tech Academy classroom learning" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={aboutImg}
+                  alt="YUGA Tech Academy classroom learning"
+                  className="w-full h-full object-cover"
                 />
-                
+
                 {/* Float badges on top of image */}
                 <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md border border-slate-100 flex items-center justify-center text-slate-700 z-10"><Code2 className="w-4 h-4" /></div>
                 <div className="absolute top-8 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-md border border-slate-100 flex items-center justify-center text-slate-700 z-10"><TrendingUp className="w-4 h-4" /></div>
@@ -1892,44 +1890,44 @@ function Process() {
 
 /* ---------- placement ---------- */
 const OFFERS = [
-  { 
-    title: "Resume Building", 
-    icon: FileText, 
+  {
+    title: "Resume Building",
+    icon: FileText,
     desc: "ATS-friendly resumes that get you noticed.",
     bgClass: "bg-blue-50 text-blue-500",
     iconColor: "text-blue-600 font-semibold"
   },
-  { 
-    title: "Mock Interviews", 
-    icon: MessageCircle, 
+  {
+    title: "Mock Interviews",
+    icon: MessageCircle,
     desc: "Realistic interview practice with experts.",
     bgClass: "bg-emerald-50 text-emerald-500",
     iconColor: "text-emerald-600 font-semibold"
   },
-  { 
-    title: "Technical Prep", 
-    icon: Code2, 
+  {
+    title: "Technical Prep",
+    icon: Code2,
     desc: "Coding tests, aptitude & technical training.",
     bgClass: "bg-amber-50 text-amber-500",
     iconColor: "text-amber-600 font-semibold"
   },
-  { 
-    title: "Soft Skills Training", 
-    icon: Users, 
+  {
+    title: "Soft Skills Training",
+    icon: Users,
     desc: "Communication, confidence & more.",
     bgClass: "bg-rose-50 text-rose-500",
     iconColor: "text-rose-600 font-semibold"
   },
-  { 
-    title: "Hiring Assistance", 
-    icon: Briefcase, 
+  {
+    title: "Hiring Assistance",
+    icon: Briefcase,
     desc: "Get job opportunities from top companies.",
     bgClass: "bg-blue-50 text-blue-500",
     iconColor: "text-blue-600 font-semibold"
   },
-  { 
-    title: "Interview Scheduling", 
-    icon: Calendar, 
+  {
+    title: "Interview Scheduling",
+    icon: Calendar,
     desc: "Hassle-free interview scheduling support.",
     bgClass: "bg-yellow-50 text-yellow-500",
     iconColor: "text-yellow-600 font-semibold"
@@ -2028,9 +2026,9 @@ const getRecruiterLogo = (name: string) => {
 
 function Placements() {
   return (
-    <section id="placements" className="py-10 bg-white border-t border-slate-100">
+    <section id="placements" className="py-10 bg-white border-t border-slate-100 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Part 1: Grid Header section */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-8">
           {/* Left: Heading and Key Features */}
@@ -2094,8 +2092,8 @@ function Placements() {
 
             {/* Our Placement Process Button */}
             <Reveal delay={0.08} className="mt-8">
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold text-xs transition-all duration-300 shadow-md hover:shadow-lg hover:brightness-110"
                 style={{ background: "var(--gradient-navy)" }}
               >
@@ -2108,13 +2106,13 @@ function Placements() {
           <div className="lg:col-span-5 relative">
             <Reveal className="relative">
               <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-br from-gold/15 to-navy/5 blur-2xl pointer-events-none" />
-              
+
               {/* Curved container for the image */}
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-slate-100 w-full h-[280px] lg:h-[320px]">
-                <img 
-                  src={aboutImg} 
-                  alt="Recruiters interviewing student at YUGA Tech Academy" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={aboutImg}
+                  alt="Recruiters interviewing student at YUGA Tech Academy"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -2128,7 +2126,7 @@ function Placements() {
                   </div>
                   <span className="text-[9px] text-white font-bold mt-1.5 leading-none">Skill Assessment</span>
                 </div>
-                
+
                 <span className="text-slate-600 font-bold text-xs">&rarr;</span>
 
                 {/* Step 2 */}
@@ -2209,7 +2207,7 @@ function Placements() {
         <Reveal className="mt-8">
           <div className="bg-[#020617] border border-slate-800 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden text-left">
             <div className="absolute inset-y-0 right-0 w-[40%] bg-[radial-gradient(circle_at_right,rgba(234,179,8,0.05),transparent_60%)] pointer-events-none" />
-            
+
             {/* Left: Icon and Text */}
             <div className="flex items-center gap-5 z-10">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EAB308]/15 text-[#EAB308]">
@@ -2224,8 +2222,8 @@ function Placements() {
             </div>
 
             {/* Right: Gold Enroll Button */}
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white border border-[#EAB308]/60 font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:translate-y-[-2px] z-10 flex-shrink-0 hover:brightness-110"
               style={{ background: "var(--gradient-navy)" }}
             >
@@ -2241,38 +2239,38 @@ function Placements() {
 
 /* ---------- testimonials ---------- */
 const REVIEWS = [
-  { 
-    name: "Sneha Reddy", 
-    course: "MERN Stack Developer", 
-    quote: "The training and guidance I received at YUGA Tech Academy helped me build strong skills and land my dream job. Thank you for everything!", 
+  {
+    name: "Sneha Reddy",
+    course: "MERN Stack Developer",
+    quote: "The training and guidance I received at YUGA Tech Academy helped me build strong skills and land my dream job. Thank you for everything!",
     avatar: "https://i.pravatar.cc/120?img=32",
     company: "TCS"
   },
-  { 
-    name: "Arjun Patnaik", 
-    course: "Python Developer", 
-    quote: "The hands-on projects and real-time approach boosted my confidence. The placement team is excellent and very supportive.", 
+  {
+    name: "Arjun Patnaik",
+    course: "Python Developer",
+    quote: "The hands-on projects and real-time approach boosted my confidence. The placement team is excellent and very supportive.",
     avatar: "https://i.pravatar.cc/120?img=12",
     company: "Infosys"
   },
-  { 
-    name: "Pooja Sharma", 
-    course: "Data Analyst", 
-    quote: "YUGA Tech Academy provides the perfect blend of technical knowledge and soft skills training. Highly recommended!", 
+  {
+    name: "Pooja Sharma",
+    course: "Data Analyst",
+    quote: "YUGA Tech Academy provides the perfect blend of technical knowledge and soft skills training. Highly recommended!",
     avatar: "https://i.pravatar.cc/120?img=47",
     company: "Wipro"
   },
-  { 
-    name: "Sai Kiran", 
-    course: "Java Developer", 
-    quote: "From zero coding knowledge to getting placed in a top MNC - my journey wouldn't have been possible without YUGA.", 
+  {
+    name: "Sai Kiran",
+    course: "Java Developer",
+    quote: "From zero coding knowledge to getting placed in a top MNC - my journey wouldn't have been possible without YUGA.",
     avatar: "https://i.pravatar.cc/120?img=15",
     company: "Accenture"
   },
-  { 
-    name: "Meghana Das", 
-    course: "QA Engineer", 
-    quote: "The trainers are experienced and always ready to help. YUGA Tech Academy is the best place to start your tech career.", 
+  {
+    name: "Meghana Das",
+    course: "QA Engineer",
+    quote: "The trainers are experienced and always ready to help. YUGA Tech Academy is the best place to start your tech career.",
     avatar: "https://i.pravatar.cc/120?img=45",
     company: "HCL"
   },
@@ -2332,7 +2330,7 @@ function Testimonials() {
   const prev = () => setIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
 
   return (
-    <section id="testimonials" className="py-10 bg-white border-t border-slate-100 relative overflow-hidden">
+    <section id="testimonials" className="py-10 bg-white border-t border-slate-100 relative overflow-hidden scroll-mt-24">
       {/* Background dot shade */}
       <div className="absolute left-8 top-1/4 w-28 h-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60 pointer-events-none hidden lg:block" />
       <div className="absolute right-8 top-1/4 w-28 h-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60 pointer-events-none hidden lg:block" />
@@ -2342,7 +2340,7 @@ function Testimonials() {
       <div className="absolute top-20 right-16 text-[#FAF9F6] font-display font-black text-[220px] leading-none select-none pointer-events-none hidden lg:block">”</div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        
+
         {/* Header capsule and titles */}
         <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold bg-amber-50 text-[#D97706] uppercase tracking-widest mb-4">
           Student Voices
@@ -2355,17 +2353,17 @@ function Testimonials() {
 
         {/* Carousel deck viewport */}
         <div className="relative mt-6 max-w-5xl mx-auto px-0 sm:px-10">
-          
+
           {/* Desktop view (animated slider) */}
           <div className="hidden lg:block overflow-hidden py-4 px-2">
-            <motion.div 
+            <motion.div
               className="flex gap-6"
               animate={{ x: `-${index * 324}px` }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {REVIEWS.map((r, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="w-[300px] flex-shrink-0 bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.015)] flex flex-col justify-between text-left transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:-translate-y-1"
                 >
                   <div>
@@ -2407,8 +2405,8 @@ function Testimonials() {
           {/* Mobile view (native scroll with snap) */}
           <div className="flex lg:hidden overflow-x-auto scrollbar-none snap-x snap-mandatory gap-6 py-4 px-4 w-full">
             {REVIEWS.map((r, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="w-[280px] sm:w-[300px] flex-shrink-0 snap-center bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.015)] flex flex-col justify-between text-left transition-all duration-300"
               >
                 <div>
@@ -2443,15 +2441,15 @@ function Testimonials() {
           </div>
 
           {/* Navigation Controls (Desktop only) */}
-          <button 
-            onClick={prev} 
+          <button
+            onClick={prev}
             className="hidden lg:flex absolute left-0 top-[42%] -translate-y-1/2 p-2.5 rounded-full bg-[#020617] text-white hover:bg-slate-800 transition shadow-lg z-10"
             aria-label="Previous reviews"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button 
-            onClick={next} 
+          <button
+            onClick={next}
             className="hidden lg:flex absolute right-0 top-[42%] -translate-y-1/2 p-2.5 rounded-full bg-[#020617] text-white hover:bg-slate-800 transition shadow-lg z-10"
             aria-label="Next reviews"
           >
@@ -2478,7 +2476,7 @@ function Testimonials() {
             {/* Middle part: Overlapping avatars */}
             <div className="flex -space-x-3 overflow-hidden">
               {[32, 12, 47, 15, 45, 22].map((imgId, idx) => (
-                <img 
+                <img
                   key={idx}
                   className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
                   src={`https://i.pravatar.cc/100?img=${imgId}`}
@@ -2568,7 +2566,7 @@ const FAQS = [
 function FAQ() {
   const [open, setOpen] = useState(-1);
   return (
-    <section className="py-10 bg-gradient-to-b from-background to-secondary/30">
+    <section id="faq" className="py-10 bg-gradient-to-b from-background to-secondary/30 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
@@ -2634,11 +2632,11 @@ function Contact() {
     const msg = fd.get("message") as string;
 
     const text = `*New Inquiry from YUGA Tech Academy*\n\n` +
-                 `*Name:* ${name}\n` +
-                 `*Phone:* ${phone}\n` +
-                 `*Email:* ${email}\n` +
-                 `*Course:* ${course}\n` +
-                 `*Message:* ${msg}`;
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${email}\n` +
+      `*Course:* ${course}\n` +
+      `*Message:* ${msg}`;
 
     const waUrl = `https://api.whatsapp.com/send?phone=917989033585&text=${encodeURIComponent(text)}`;
     window.open(waUrl, "_blank");
@@ -2648,10 +2646,10 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-10 bg-[#fafafa] border-t border-slate-100">
+    <section id="contact" className="py-10 bg-[#fafafa] border-t border-slate-100 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Contact Us" title="Let's Start Your Journey" sub="Visit our campus, drop us a message, or say hello — we're here to help." />
-        
+
         {/* Map & Form Row */}
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Google Map (sleeker, aligned, shorter) */}
@@ -2679,14 +2677,14 @@ function Contact() {
                     <Input label="Full Name" name="name" placeholder="Your name" required />
                     <Input label="Phone" name="phone" type="tel" placeholder="+91 " required />
                   </div>
-                  
+
                   <Input label="Email" name="email" type="email" placeholder="you@email.com" required />
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-slate-800 mb-1.5">Course Interested</label>
-                    <select 
-                      name="course" 
-                      required 
+                    <select
+                      name="course"
+                      required
                       className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 font-medium transition-all"
                     >
                       <option value="">Select a course…</option>
@@ -2695,19 +2693,19 @@ function Contact() {
                       )))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-slate-800 mb-1.5">Message</label>
-                    <textarea 
-                      name="message" 
-                      rows={2} 
-                      placeholder="Tell us about your goals…" 
-                      className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 resize-none font-medium transition-all" 
+                    <textarea
+                      name="message"
+                      rows={2}
+                      placeholder="Tell us about your goals…"
+                      className="w-full rounded-xl border border-slate-200 bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 resize-none font-medium transition-all"
                     />
                   </div>
-                  
-                  <button 
-                    type="submit" 
+
+                  <button
+                    type="submit"
                     style={{ background: "var(--gradient-navy)" }}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-bold text-sm shadow hover:brightness-110 transition-all active:translate-y-[1px]"
                   >
@@ -2732,7 +2730,7 @@ function Contact() {
               </div>
             </div>
           </Reveal>
-          
+
           <Reveal delay={0.15}>
             <div className="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.01)] h-full">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-[#D97706]"><Mail className="w-5 h-5" /></div>
@@ -2875,8 +2873,22 @@ function Footer() {
               </div>
             </div>
             <div className="mt-5 flex gap-2">
-              {[Facebook, Instagram, Linkedin, Youtube].map((I, k) => (
-                <a key={k} href="#" className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 hover:bg-gold hover:text-navy-deep transition"><I className="w-4 h-4" /></a>
+              {[
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/yugatechacademy?igsh=MWwzazYza2pvZTVmYg==", label: "Instagram" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Youtube, href: "#", label: "YouTube" },
+              ].map(({ Icon, href, label }, k) => (
+                <a
+                  key={k}
+                  href={href}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
+                  aria-label={label}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 hover:bg-gold hover:text-navy-deep transition"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
               ))}
             </div>
           </div>

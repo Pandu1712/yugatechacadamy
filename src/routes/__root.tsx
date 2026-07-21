@@ -75,22 +75,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "YUGA Tech Academy — Learn. Build. Excel." },
-      { name: "description", content: "Premier IT training institute in Visakhapatnam. Master AI, Cloud, Cybersecurity, Full Stack & more with expert trainers, live projects, internships and 95% placement support." },
-      { name: "keywords", content: "IT Training Institute Visakhapatnam, Software Courses Vizag, Java Full Stack Course, MERN Stack Developer, Python Programming, AWS Cloud Certification, DevOps Training, Cyber Security Classes" },
+      { name: "description", content: "Premier IT training institute in Visakhapatnam. Master AI, Cloud, Cybersecurity, Full Stack & Kids Coding with expert trainers, live projects, internships & 95% placement support." },
+      { name: "keywords", content: "IT Training Institute Visakhapatnam, Software Courses Vizag, Java Full Stack Course, MERN Stack Developer, Python Programming, AWS Cloud Certification, DevOps Training, Cyber Security Classes, Kids Coding Vizag" },
       { name: "author", content: "YUGA Tech Academy" },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       
-      // Open Graph / Facebook Meta Tags
-      { property: "og:title", content: "YUGA Tech Academy — Learn. Build. Excel." },
-      { property: "og:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
+      // Open Graph / Facebook / WhatsApp Meta Tags
+      { property: "og:title", content: "YUGA Tech Academy — Premier IT & Kids Coding Institute" },
+      { property: "og:description", content: "Master AI, Cloud, Cyber Security, Full Stack & Kids Coding with expert trainers, live projects & 95% placement support in Visakhapatnam." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://yugatechacademy.com" },
+      { property: "og:site_name", content: "YUGA Tech Academy" },
+      { property: "og:url", content: "https://www.yugatechacademy.com" },
       { property: "og:image", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
+      { property: "og:image:secure_url", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "YUGA Tech Academy Visakhapatnam" },
+      { property: "og:locale", content: "en_US" },
       
       // Twitter Card Meta Tags
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "YUGA Tech Academy — Learn. Build. Excel." },
-      { name: "twitter:description", content: "Industry-ready IT training with live projects, internships & placement assistance in Visakhapatnam." },
+      { name: "twitter:title", content: "YUGA Tech Academy — Premier IT & Kids Coding Institute" },
+      { name: "twitter:description", content: "Master AI, Cloud, Cyber Security, Full Stack & Kids Coding with live projects & placement support." },
       { name: "twitter:image", content: "https://www.yugatechacademy.com/yugaacademy-logo.jpeg" },
     ],
     links: [
