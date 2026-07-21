@@ -945,15 +945,6 @@ const COURSE_GROUPS: {
         { name: "MS Office", desc: "Word, Excel, PowerPoint mastery.", dur: "1 Month", level: "Beginner", bullets: ["Excel pivot tables/formulas", "Word formatting", "PowerPoint deck design"] },
       ]
     },
-    {
-      title: "Kids Coding", icon: Baby, courses: [
-        { name: "Scratch", desc: "Visual programming for kids.", dur: "1.5 Months", level: "Kids", bullets: ["Block-based logic", "Sprite animations", "Simple game design"] },
-        { name: "Block Coding", desc: "Logic through blocks.", dur: "1.5 Months", level: "Kids", bullets: ["Conditionals & Loops", "Computational logic", "App Inventor basic apps"] },
-        { name: "Python for Kids", desc: "First real language for kids.", dur: "2 Months", level: "Kids", bullets: ["Turtle graphics", "Python basic syntax", "Text adventure games"] },
-        { name: "AI for Kids", desc: "Fun intro to AI concepts.", dur: "1.5 Months", level: "Kids", bullets: ["Image classifiers", "Speech recognition games", "Ethics of AI"] },
-        { name: "Robotics", desc: "Hands-on robots & sensors.", dur: "2.5 Months", level: "Kids", bullets: ["Arduino/Micro:bit basics", "Sensor integration", "Robot path traversal"] },
-      ]
-    },
   ];
 
 const getCourseBullets = (course: any) => {
@@ -1371,7 +1362,7 @@ function Courses() {
                 Professional <span className="text-[#D97706]">Courses</span>
               </h2>
               <p className="mt-4 text-base text-slate-500 max-w-xl font-medium leading-relaxed">
-                From beginner to advanced — 40+ industry-aligned programs across 10 verticals to launch your dream career.
+                From beginner to advanced — 40+ industry-aligned programs across 9 verticals to launch your dream career.
               </p>
             </Reveal>
 
